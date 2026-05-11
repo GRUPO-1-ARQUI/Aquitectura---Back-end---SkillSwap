@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap</title>
+    <link rel="stylesheet" href="../assets/styles/styleSheet.css">
+    <link rel="stylesheet" href="../assets/styles/estudiante.css">
+    <link rel="stylesheet" href="../assets/styles/alianzas.css">
+         <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <nav class="barra-navegacion">
+    <div class="menu-hamburguesa" id="btn-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+        
+      <div class="logo">
+        <a href="index-user-estudiante.html">
+            <img
+          src="../assets/images/SkillSwap_logo.png"
+          alt="Logo de la aplocacion SkillSwap" class="logo-ss"
+        />
+        </a>
+        
+      </div>
+      <div class="menu-horizontal">
+        <ul class="menu-horizontal-opciones">
+          <li>
+            <a href="#" id="nav-mis-tutores">Mis tutores</a>
+          </li>
+          <li>
+            <a href="#" id="nav-sesiones">Sesiones</a>
+          </li>
+          <!--aca vamos a colocar un icono de lupa-->
+          <li>
+            <a href="#" id="nav-buscar" title="Buscar">
+              <img width="40px" height="40px" src="../assets/images/imagen-lupa.png" alt="Icono de lupa" class="icono-lupa"/>
+              <span class="texto-solo-movil">Buscar</span>
+            </a>
+          </li>
+           <!--aca vamos a agregar un icono de notificaciones-->
+           <li class="dropdown-notificaciones-container">
+  
+  <a href="#" id="nav-notificaciones" class="nav-link-notificaciones" title="Notificaciones">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M11.5451 0C9.14713 0 6.84734 0.952601 5.1517 2.64824C3.45606 4.34388 2.50346 6.64367 2.50346 9.04167V13.5987C2.50365 13.799 2.45722 13.9967 2.36784 14.176L0.150044 18.6103C0.0417069 18.827 -0.00944872 19.0677 0.00143541 19.3097C0.0123195 19.5516 0.084882 19.7868 0.212231 19.9929C0.33958 20.1989 0.517487 20.369 0.729055 20.4869C0.940623 20.6048 1.17883 20.6667 1.42104 20.6667H21.6692C21.9114 20.6667 22.1496 20.6048 22.3612 20.4869C22.5728 20.369 22.7507 20.1989 22.878 19.9929C23.0054 19.7868 23.0779 19.5516 23.0888 19.3097C23.0997 19.0677 23.0485 18.827 22.9402 18.6103L20.7237 14.176C20.6339 13.9968 20.587 13.7991 20.5868 13.5987V9.04167C20.5868 6.64367 19.6342 4.34388 17.9385 2.64824C16.2429 0.952601 13.9431 0 11.5451 0ZM11.5451 24.5417C10.7435 24.5421 9.96138 24.2939 9.30669 23.8312C8.65201 23.3685 8.15694 22.7142 7.88971 21.9583H15.2005C14.9333 22.7142 14.4382 23.3685 13.7836 23.8312C13.1289 24.2939 12.3468 24.5421 11.5451 24.5417Z" fill="black"/>
+                    </svg>
+
+                    <span class="texto-solo-movil">Notificaciones</span>
+
+                    <span class="badge-notificaciones">2</span>
+  </a>
+
+  <div class="dropdown-menu-notificaciones" id="dropdown-notificaciones">
+      <div class="dropdown-header">
+          <h3>Solicitudes pendientes</h3>
+      </div>
+      <ul class="lista-notificaciones">
+          <li class="notificacion-item">
+              <div class="dash-est-tarjeta-solicitud dropdown-style">
+                  <img src="../assets/images/ima-foto-adrian-guevara.png" 
+                    alt="Foto Jose Alvarado" 
+                    class="dash-est-solicitud-img trigger-mini-perfil"
+                    style="cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"
+                    onmouseover="this.style.borderColor='#005a9c'" 
+                    onmouseout="this.style.borderColor='transparent'"
+                    data-nombre="Jose Alvarado Jimenez"
+                    data-uni="UPC"
+                    data-curso="Cálculo 1"
+                    data-foto="../assets/images/ima-foto-adrian-guevara.png">
+                  <div class="dash-est-solicitud-info">
+                      <p><strong>Jose Alvarado Jimenez</strong></p>
+                      <p>Hola! Podemos programar una sesion para el martes? :)</p>
+                  </div>
+                  <div class="dash-est-solicitud-acciones">
+                      <button class="dash-est-accion-btn aceptar small" aria-label="Aceptar" id="btn-aceptar-tutoria">✓</button>
+                      <button class="dash-est-accion-btn rechazar small" aria-label="Rechazar">✕</button>
+                  </div>
+              </div>
+          </li>
+          <li class="notificacion-item">
+              <div class="dash-est-tarjeta-solicitud dropdown-style">
+                  <img src="../assets/images/ima-chico1.png" 
+                    alt="Foto Miguel Santos" 
+                    class="dash-est-solicitud-img trigger-mini-perfil"
+                    style="cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s;"
+                    onmouseover="this.style.borderColor='#005a9c'" 
+                    onmouseout="this.style.borderColor='transparent'"
+                    data-nombre="Miguel Santos"
+                    data-uni="PUCP"
+                    data-curso="Diseño UX"
+                    data-foto="../assets/images/ima-chico1.png">
+                  <div class="dash-est-solicitud-info">
+                      <p><strong>Miguel Santos</strong></p>
+                      <p>Te envié una solicitud para el curso de Diseño UX.</p>
+                  </div>
+                  <div class="dash-est-solicitud-acciones">
+                      <button class="dash-est-accion-btn aceptar small" aria-label="Aceptar">✓</button>
+                      <button class="dash-est-accion-btn rechazar small" aria-label="Rechazar">✕</button>
+                  </div>
+              </div>
+          </li>
+      </ul>
+      <div class="dropdown-footer">
+          <a href="#" id="ver-todas-notificaciones">Ver todas las solicitudes</a>
+      </div>
+  </div>
+</li>
+           <!---<li>
+                <span>
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M11.5451 0C9.14713 0 6.84734 0.952601 5.1517 2.64824C3.45606 4.34388 2.50346 6.64367 2.50346 9.04167V13.5987C2.50365 13.799 2.45722 13.9967 2.36784 14.176L0.150044 18.6103C0.0417069 18.827 -0.00944872 19.0677 0.00143541 19.3097C0.0123195 19.5516 0.084882 19.7868 0.212231 19.9929C0.33958 20.1989 0.517487 20.369 0.729055 20.4869C0.940623 20.6048 1.17883 20.6667 1.42104 20.6667H21.6692C21.9114 20.6667 22.1496 20.6048 22.3612 20.4869C22.5728 20.369 22.7507 20.1989 22.878 19.9929C23.0054 19.7868 23.0779 19.5516 23.0888 19.3097C23.0997 19.0677 23.0485 18.827 22.9402 18.6103L20.7237 14.176C20.6339 13.9968 20.587 13.7991 20.5868 13.5987V9.04167C20.5868 6.64367 19.6342 4.34388 17.9385 2.64824C16.2429 0.952601 13.9431 0 11.5451 0ZM11.5451 24.5417C10.7435 24.5421 9.96138 24.2939 9.30669 23.8312C8.65201 23.3685 8.15694 22.7142 7.88971 21.9583H15.2005C14.9333 22.7142 14.4382 23.3685 13.7836 23.8312C13.1289 24.2939 12.3468 24.5421 11.5451 24.5417Z" fill="black"/>
+                    </svg>
+                </span>
+            </li>
+            -->
+            <!--aca vamos a colocar la foto del perfil encerrado en un circulo-->
+            <li>
+                <a href="#" id="nav-perfil" title="Ver Perfil">
+                  <div class="estudiante-foto-usuario-nav">
+                      <img src="../assets/images/ima-chica1.png" alt="Foto de perfil del estudiante" class="foto-usuario-nav"/>
+                  </div>
+                  <span class="texto-solo-movil">Mi perfil</span>
+                </a>
+            </li>
+
+                      <li>
+                <a href="#" id="btn-cerrar-sesion" title="Salir del sistema">
+                    <button class="btn-iniciarsesion" style="background-color: #DC3545; border: none; cursor: pointer;">
+                        Cerrar Sesión
+                    </button>
+                </a>
+         </li>
+
+        </ul>
+      </div>
+    </nav>
+    
+    <!--seccion estudiantes aprendices-->
+    <!--
+    <section class="seccion-user-estudiante-aprendiz">
+    <div class="division-general-estudiantes-aprendices">
+        <div class="titulo-seccion-user-estudiante-aprendiz">
+        <h1>Bienvenido Estudiante Aprendiz</h1>
+      </div>
+
+      <div class="division-user-estudiante-aprendiz-row">
+        <div class="division-user-estudiante-aprendiz-txt">
+            <div class="elementos-user-estudiante-aprendiz-txt">
+              <div class="habilidad1-estudiante-txt">
+                <h2>Profesores</h2>
+                <p>Encuentra tu profesor ideal a través de estudiantes que quieran enseñarte y calificalos.</p>
+              </div>
+            </div>
+
+            <div class="elementos-user-estudiante-aprendiz-txt">
+              <div class="habilidad1-estudiante-txt">
+                <h2>Sesiones</h2>
+                <p>Reuniones de aprendizaje con otros estudiantes a través de videollamadas.</p>
+              </div>
+            </div>
+
+            <div class="elementos-user-estudiante-aprendiz-txt">
+              <div class="habilidad1-estudiante-txt">
+                <h2>Favoritos</h2>
+                <p>Guarda tus profesores favoritos para acceder a ellos fácilmente.</p>
+              </div>
+            </div>
+ 
+            <div class="elementos-user-estudiante-aprendiz-txt">
+              <div class="habilidad1-estudiante-txt">
+                <h2>Aprendizaje</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ipsum voluptate aspernatur nostrum voluptates similique omnis quisquam modi numquam aliquid accusamus quibusdam totam commodi, amet doloremque illo debitis! Quas, amet?.</p>
+              </div>
+            </div>       
+        </div>
+
+         <div class="elementos-user-estudiante-aprendiz-img">
+              <div class="elm-tutor-img1">
+                  <img src="../imagenes/imagen-aprendiz-1.png" alt="Imagen referencial de estudiante aprendiz en la plataforma">
+              </div>
+
+              <div class="elm-tutor-img2">
+                  <img src="../imagenes/imagen-aprendiz-2.png" alt="Imagen referencial de estudiante aprendiz en la plataforma">
+              </div>
+            </div>
+      </div>
+    </div>
+    </section>
+
+
+    <section class="seccion-user-estudiante-tutores">
+      <div class="division-general-estudiantes-tutores">
+          <div class="titulo-seccion-user-estudiante-tutores">
+            <h1>Bienvenido Estudiante Tutor</h1>
+          </div>
+
+          <div class="division-user-estudiante-tutores-row">
+              <div class="division-user-estudiante-tutores-txt">
+                    <div class="elementos-user-estudiante-tutores-txt">
+                      <div class="habilidad1-tutores-txt">
+                        <h2>Refuerza tus habilidades</h2>
+                        <p>Enseña a otros y mejora tus propias habilidades personales en el proceso.</p>
+                      </div>
+                    </div>
+
+                    <div class="elementos-user-estudiante-tutores-txt">
+                      <div class="habilidad1-tutores-txt">
+                        <h2>Sesiones</h2>
+                        <p>Reuniones de aprendizaje con otros estudiantes a través de videollamadas.</p>
+                      </div>
+                    </div>
+
+                    <div class="elementos-user-estudiante-tutores-txt">
+                      <div class="habilidad1-tutores-txt">
+                        <h2>califica</h2>
+                        <p>Califica a tus estudiantes y recibe retroalimentación sobre tu desempeño.</p>
+                      </div>
+                    </div>
+ 
+                    <div class="elementos-user-estudiante-tutores-txt">
+                      <div class="habilidad1-tutores-txt">
+                        <h2>Creditos</h2>
+                        <p>Lorem ipsum dolor sit amet sconsectetur adipisicing elit. Dolores ipsum voluptate aspernatur nostrum voluptates similique omnis quisquam modi numquam aliquid accusamus quibusdam totam commodi, amet doloremque illo debitis! Quas, amet?.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="elementos-user-estudiante-tutores-img">
+                  <div class="elm-tutor-img1">
+                      <img src="../imagenes/imagen-tutor-1.png" alt="Imagen referencial de estudiante tutor en la plataforma">
+                  </div>
+
+                  <div class="elm-tutor-img2">
+                      <img src="../imagenes/imagen-tutor-2.png" alt="Imagen referencial de estudiante tutor en la plataforma">
+                  </div>
+                  
+                </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="videos-estudiantes-tutores">
+      <div class="container-videos-estudiantes-tutores">
+        <div class="video-estudiante-aprendiz">
+          <h2>Funciones Estudiante Aprendiz</h2>
+          <video controls class="video-user-estudiante-aprendiz">
+            <source src="../videos/Android-estudiante.mp4" type="video/mp4">
+            Video.
+          </video>
+        </div>
+        <div class="video-estudiante-tutor">
+          <h2>Funciones Estudiante Tutor</h2>
+          <video controls class="video-user-estudiante-tutores">
+            <source src="../videos/Android-tutor.mp4" type="video/mp4">
+            Video.
+          </video>
+        </div>
+
+      </div>
+
+    </section>
+-->
+    <section class="panel-seccion" id="panel-funcionalidades">
+        <h1> Se presentan las funcionalidades del estudiante</h1>
+    </section>
+
+    
+    <section class="seccion-chat-container panel-seccion" id="panel-chat-aprendiz">
+
+            <div class="chat-sub-header">
+                <div class="chat-header-perfil">
+                    <img src="../assets/images/ima-foto-victor.png" class="chat-perfil-foto" id="chat-foto-usuario-a" alt="Foto perfil chat">
+                    <span class="chat-perfil-nombre" id="chat-nombre-usuario-a">Chat General</span>
+                </div>
+                <div class="chat-header-iconos">
+                <button id="btn-iniciar-videollamada-a" class="btn-header-chat" title="Iniciar Videollamada">
+            <svg width="40" height="30" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M37.7444 5.46884C37.3408 5.42222 36.9324 5.49464 36.5694 5.67717L27.084 10.4168V18.7501L36.5694 23.4897C36.8866 23.6482 37.2391 23.7231 37.5933 23.7073C37.9476 23.6916 38.292 23.5856 38.5939 23.3995C38.8958 23.2134 39.1452 22.9533 39.3184 22.6439C39.4917 22.3345 39.5831 21.986 39.584 21.6313V7.5355C39.5834 7.02558 39.3958 6.53358 39.0568 6.1527C38.7178 5.77181 38.2508 5.5285 37.7444 5.46884Z" fill="black"/>
+<path d="M6.25 0C2.82292 0 0 2.82292 0 6.25V22.9167C0 26.3437 2.82292 29.1667 6.25 29.1667H22.9167C26.3437 29.1667 29.1667 26.3437 29.1667 22.9167V6.25C29.1667 2.82292 26.3437 0 22.9167 0H6.25Z" fill="black"/>
+</svg>
+
+
+
+
+        </button>
+        
+        <button class="btn-header-chat" title="Más opciones">⋮</button>
+    </div>
+            </div>
+
+          <div class="chat-container">
+
+        <main class="area-mensajes">
+
+           <div class="burbuja-mensaje recibido">
+        <span>¡Hola! Soy tu tutor. ¿En qué puedo ayudarte hoy?</span>
+    </div>
+
+        </main>
+
+        <footer class="chat-input-area">
+            <input type="file" id="input-archivo-oculto" style="display: none;" accept="image/*,.pdf">
+
+            <button class="chat-boton-adjuntar" id="btn-adjuntar-archivo" aria-label="Adjuntar archivo">+</button>
+
+            <input type="text" class="chat-input-texto" id="chat-input-principal" placeholder="Escribe un mensaje">
+            
+            <button class="chat-boton-enviar" id="chat-btn-enviar" aria-label="Enviar mensaje">
+                <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28.4583 12.4167L0.75 24.0833L5.94604 12.4167L0.75 0.75L28.4583 12.4167ZM28.4583 12.4167H5.85417" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </footer>
+
+    </div>
+
+    </section>
+
+    <section class="seccion-chat-container panel-seccion" id="panel-chat-tutor">
+
+        <div class="chat-sub-header">
+                <div class="chat-header-perfil">
+                    <img src="../assets/images/ima-foto-adrian-guevara.png" class="chat-perfil-foto" id="chat-foto-usuario-t" alt="Foto perfil chat">
+                    <span class="chat-perfil-nombre" id="chat-nombre-usuario-t">Chat General</span>
+                </div>
+                <div class="chat-header-iconos">
+                <button id="btn-iniciar-videollamada-t" class="btn-header-chat" title="Iniciar Videollamada">
+            <svg width="40" height="30" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M37.7444 5.46884C37.3408 5.42222 36.9324 5.49464 36.5694 5.67717L27.084 10.4168V18.7501L36.5694 23.4897C36.8866 23.6482 37.2391 23.7231 37.5933 23.7073C37.9476 23.6916 38.292 23.5856 38.5939 23.3995C38.8958 23.2134 39.1452 22.9533 39.3184 22.6439C39.4917 22.3345 39.5831 21.986 39.584 21.6313V7.5355C39.5834 7.02558 39.3958 6.53358 39.0568 6.1527C38.7178 5.77181 38.2508 5.5285 37.7444 5.46884Z" fill="black"/>
+<path d="M6.25 0C2.82292 0 0 2.82292 0 6.25V22.9167C0 26.3437 2.82292 29.1667 6.25 29.1667H22.9167C26.3437 29.1667 29.1667 26.3437 29.1667 22.9167V6.25C29.1667 2.82292 26.3437 0 22.9167 0H6.25Z" fill="black"/>
+</svg>
+
+
+
+
+        </button>
+        
+        <button class="btn-header-chat" title="Más opciones">⋮</button>
+    </div>
+            </div>
+
+        <div class="chat-container">
+            <main class="area-mensajes">
+                <div class="burbuja-mensaje recibido">
+                    <span>¡Hola! He visto tu solicitud. ¿En qué temas necesitas refuerzo específico?</span>
+                </div>
+            </main>
+
+            <footer class="chat-input-area">
+                <input type="file" id="input-archivo-oculto-tutor" style="display: none;" accept="image/*,.pdf">
+
+                <button class="chat-boton-adjuntar" id="btn-adjuntar-archivo-tutor" aria-label="Adjuntar archivo">+</button>
+
+                <input type="text" class="chat-input-texto" id="chat-input-tutor" placeholder="Escribe un mensaje al tutor...">
+                
+                <button class="chat-boton-enviar" id="chat-btn-enviar-tutor" aria-label="Enviar mensaje">
+                    <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.4583 12.4167L0.75 24.0833L5.94604 12.4167L0.75 0.75L28.4583 12.4167ZM28.4583 12.4167H5.85417" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </footer>
+        </div>
+
+    </section>
+
+   
+    <section class="seccion-videollamada-principal panel-seccion" id="panel-videollamada-a">
+    
+    <div class="videollamada-wrapper">
+        
+<div class="videollamada-layout">
+            
+            <div class="video-screen-principal">
+                <span class="etiqueta-nombre">Victor Alberca (Tutor) 🎙️</span>
+
+                
+                <div class="pizarra-overlay" id="pizarra-overlay">
+                    <div class="pizarra-contenido">
+                        <div class="pizarra-header">
+                            <h3>Pizarra Compartida</h3>
+                            <div class="pizarra-tools">
+                                <button id="btn-limpiar-pizarra" style="background: #ffeba7; border:none; padding: 5px 10px; cursor:pointer; border-radius:5px;">Borrar Todo</button>
+                                <button id="btn-cerrar-pizarra-interno" style="background: #ffadad; border:none; padding: 5px 10px; cursor:pointer; border-radius:5px;">X</button>
+                            </div>
+                        </div>
+                        <canvas id="mi-canvas-dibujo" width="800" height="500" style="background: white; border-radius: 8px; cursor: crosshair; touch-action: none;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-participantes">
+                <div class="tarjeta-video-mini">
+                    <span class="etiqueta-nombre-mini">Tú</span>
+                    <img src="../assets/images/ima-chica1.png" alt="Mi Video" class="img-video-mini">
+                </div>
+                <div class="tarjeta-video-mini">
+                    <span class="etiqueta-nombre-mini">Adrian Guevara</span>
+                    <img src="../assets/images/ima-foto-adrian-guevara.png" alt="Video Participante" class="img-video-mini">
+                </div>
+                <div class="info-llamada-mini">
+                    <p>En llamada: 00:15:23</p>
+                </div>
+            </div>
+
+            <div class="chat-lateral-llamada" id="panel-chat-llamada">
+                <div class="header-chat-llamada">
+                    <h3>Chat de la sala</h3>
+                    <button id="btn-cerrar-chat-llamada">✕</button>
+                </div>
+                <div class="cuerpo-chat-llamada">
+                    <div class="mensaje-chat-llamada">
+                        <strong>Adrian:</strong> Hola a todos!
+                    </div>
+                    <div class="mensaje-chat-llamada propio">
+                        <strong>Tú:</strong> ¿Se escucha bien?
+                    </div>
+                </div>
+                <div class="footer-chat-llamada">
+                    <input type="file" id="input-archivo-video" style="display: none;" accept="image/*,.pdf">
+                    
+                    <button id="btn-adjuntar-video" class="btn-adjuntar-video" title="Adjuntar archivo">+</button>
+                    
+                    <input type="text" placeholder="Escribir mensaje...">
+                    <button>➤</button>
+                </div>
+            </div>
+
+        </div>
+
+<div class="controles-videollamada-bar">
+            <button class="btn-control" id="btn-micro-video" title="Silenciar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            </button>
+
+            <button class="btn-control" id="btn-camara-video" title="Cámara">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            </button>
+
+            <button class="btn-control" id="btn-toggle-pizarra" title="Abrir Pizarra">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h20v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3z"></path>
+                    <path d="M8.5 21h7"></path>
+                    <line x1="12" y1="21" x2="12" y2="3"></line>
+                </svg>
+            </button>
+
+            <button class="btn-control-llamada" id="btn-toggle-chat-llamada" title="Abrir Chat">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </button>
+
+            <button class="btn-control-llamada compartir" title="Compartir">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </button>
+
+            <button class="btn-control colgar"id="btn-colgar-llamada-a" title="Colgar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"></path><line x1="23" y1="1" x2="1" y2="23"></line></svg>
+            </button>
+        </div>
+
+    </div>
+    </section>
+
+ <section class="seccion-videollamada-principal panel-seccion" id="panel-videollamada-t">
+    <div class="videollamada-wrapper">
+        
+        <div class="videollamada-layout">
+            <div class="video-screen-principal">
+                <span class="etiqueta-nombre">Pantalla de Alexandra Meza (Tú)(Tutor) 🎙️</span>
+
+                <div class="pizarra-overlay" id="pizarra-overlay-t">
+                    <div class="pizarra-contenido">
+                        <div class="pizarra-header">
+                            <h3>Pizarra Compartida</h3>
+                            <div class="pizarra-tools">
+                                <button id="btn-limpiar-pizarra-t" style="background: #ffeba7; border:none; padding: 5px 10px; cursor:pointer; border-radius:5px;">Borrar Todo</button>
+                                <button id="btn-cerrar-pizarra-interno-t" style="background: #ffadad; border:none; padding: 5px 10px; cursor:pointer; border-radius:5px;">X</button>
+                            </div>
+                        </div>
+                        <canvas id="mi-canvas-dibujo-t" width="800" height="500" style="background: white; border-radius: 8px; cursor: crosshair; touch-action: none;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-participantes">
+                <div class="tarjeta-video-mini">
+                    <span class="etiqueta-nombre-mini">Tú</span>
+                    <img src="../assets/images/ima-chica1.png" alt="Mi Video" class="img-video-mini">
+                </div>
+                <div class="tarjeta-video-mini">
+                    <span class="etiqueta-nombre-mini">Adrian Guevara</span>
+                    <img src="../assets/images/ima-foto-adrian-guevara.png" alt="Video Participante" class="img-video-mini">
+                </div>
+                <div class="info-llamada-mini">
+                    <p>En llamada: 00:15:23</p>
+                </div>
+            </div>
+
+            <div class="chat-lateral-llamada" id="panel-chat-llamada-t">
+                <div class="header-chat-llamada">
+                    <h3>Chat de la sala</h3>
+                    <button id="btn-cerrar-chat-llamada-t">✕</button>
+                </div>
+                <div class="cuerpo-chat-llamada">
+                    <div class="mensaje-chat-llamada">
+                        <strong>Adrian:</strong> Hola a todos!
+                    </div>
+                    <div class="mensaje-chat-llamada propio">
+                        <strong>Tú:</strong> ¿Se escucha bien?
+                    </div>
+                </div>
+                <div class="footer-chat-llamada">
+                    <input type="file" id="input-archivo-video-t" style="display: none;" accept="image/*,.pdf">
+                    
+                    <button id="btn-adjuntar-video-t" class="btn-adjuntar-video" title="Adjuntar archivo">+</button>
+                    
+                    <input type="text" placeholder="Escribir mensaje...">
+                    <button>➤</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controles-videollamada-bar">
+            <button class="btn-control-llamada" title="Silenciar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            </button>
+
+            <button class="btn-control-llamada" title="Cámara">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            </button>
+
+            <button class="btn-control" id="btn-toggle-pizarra-t" title="Abrir Pizarra">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h20v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3z"></path>
+                    <path d="M8.5 21h7"></path>
+                    <line x1="12" y1="21" x2="12" y2="3"></line>
+                </svg>
+            </button>
+
+            <button class="btn-control-llamada" id="btn-toggle-chat-llamada-t" title="Abrir Chat">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </button>
+
+            <button class="btn-control-llamada compartir" title="Compartir">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </button>
+
+            <button class="btn-control-llamada colgar" id="btn-colgar-llamada-t" title="Colgar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"></path><line x1="23" y1="1" x2="1" y2="23"></line></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+   
+    <section class="seccion-calificar-estudiante panel-seccion" id="panel-calificar-a">
+    <div class="calificacion-container">
+        
+        <div class="calificacion-header">
+            <h2>¡Sesión Finalizada!</h2>
+            <p>¿Qué tal estuvo tu experiencia con <strong id="nombre-tutor-calificar">Victor Alberca</strong>?</p>
+        </div>
+
+        <div class="calificacion-avatar">
+            <img src="../assets/images/ima-foto-victor.png" alt="Foto Tutor">
+        </div>
+
+        <div class="calificacion-estrellas">
+            <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+            <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+            <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+            <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+            <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+        </div>
+
+        <div class="calificacion-comentario">
+            <textarea placeholder="Escribe una breve reseña (opcional)..."></textarea>
+        </div>
+
+        <div class="calificacion-acciones">
+            <button class="btn-enviar-calificacion" id="btn-enviar-calificacion-a">Enviar Calificación</button>
+            <button class="btn-omitir-calificacion" id="btn-omitir-calificacion-a">Omitir</button>
+        </div>
+        <div style="margin-top: 20px; font-size: 14px; color: #666;">
+            ¿Hubo algún problema? 
+            <a href="#" id="btn-abrir-reporte-t" style="color: #DC3545; font-weight: 700; text-decoration: none;">Reportar usuario</a>
+        </div>
+    </div>
+    </section>
+
+<div id="modal-reporte-usuario" class="modal-overlay">
+    <div class="modal-contenido" style="text-align: left; max-width: 450px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #DC3545; font-size: 20px;">Reportar Usuario</h3>
+            <span id="btn-cerrar-modal-reporte" style="cursor: pointer; font-size: 20px; color: #aaa;">✕</span>
+        </div>
+        
+        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
+            Por favor, describe el motivo del reporte. Esto será revisado por un administrador.
+        </p>
+
+        <form id="form-reporte">
+            <label style="font-weight: 600; font-size: 14px; display: block; margin-bottom: 5px;">Motivo:</label>
+            <select id="motivo-reporte" style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 15px;">
+                <option value="">Selecciona un motivo...</option>
+                <option value="ausencia">El usuario no se conectó</option>
+                <option value="conducta">Comportamiento inadecuado/ofensivo</option>
+                <option value="tecnico">Problemas técnicos graves</option>
+                <option value="otro">Otro</option>
+            </select>
+
+            <label style="font-weight: 600; font-size: 14px; display: block; margin-bottom: 5px;">Descripción detallada:</label>
+            <textarea id="descripcion-reporte" style="width: 100%; height: 80px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; resize: none; box-sizing: border-box;" placeholder="Explica brevemente lo sucedido..."></textarea>
+
+            <div class="modal-botones" style="margin-top: 20px;">
+                <button type="button" id="btn-cancelar-reporte" class="btn-modal secundario">Cancelar</button>
+                <button type="submit" class="btn-modal peligro">Enviar Reporte</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <section class="seccion-calificar-estudiante panel-seccion" id="panel-calificar-t">
+    <div class="calificacion-container">
+        
+        <div class="calificacion-header">
+            <h2>¡Sesión Finalizada!</h2>
+            <p>¿Qué tal estuvo tu experiencia con <strong id="nombre-tutor-calificar">Jose Alvarado Jimenez</strong>?</p>
+        </div>
+
+        <div class="calificacion-avatar">
+            <img src="../assets/images/ima-foto-adrian-guevara.png" alt="Foto Tutor">
+        </div>
+
+        <div class="calificacion-estrellas">
+            <input type="radio" name="rating-t" id="star5-t" value="5"><label for="star5-t">★</label>
+            <input type="radio" name="rating-t" id="star4-t" value="4"><label for="star4-t">★</label>
+            <input type="radio" name="rating-t" id="star3-t" value="3"><label for="star3-t">★</label>
+            <input type="radio" name="rating-t" id="star2-t" value="2"><label for="star2-t">★</label>
+            <input type="radio" name="rating-t" id="star1-t" value="1"><label for="star1-t">★</label>
+        </div>
+
+        <div class="calificacion-comentario">
+            <textarea placeholder="Escribe una breve reseña (opcional)..."></textarea>
+        </div>
+
+        <div class="calificacion-acciones">
+            <button class="btn-enviar-calificacion" id="btn-enviar-calificacion-t">Enviar Calificación</button>
+            <button class="btn-omitir-calificacion" id="btn-omitir-calificacion-t">Omitir</button>
+        </div>
+
+    </div>
+</section>
+
+    <section class="seccion-videollamada-pizarra panel-seccion" id="panel-pizarra">
+            
+        <div class="video-area-principal-pizarra">
+            
+            <div class="video-opciones-tabs-pizarra">
+                <button class="opcion-tab-pizarra activo">
+                    <span class="icono-tab-pizarra">
+                        
+    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.0396 28.5731L23.8771 27.5658M25.0396 28.5731L28.9979 27.1939M25.0396 28.5731L23.5344 28.8752L23.8771 27.5658M23.8771 27.5658C24.2896 26.9971 25.7312 23.9689 25.7312 23.9689M28.9979 27.1939L25.7312 23.9689M28.9979 27.1939L45.3125 11.5752C44.7385 10.3512 43.6083 9.17103 42.2292 8.59082L25.7312 23.9689M7.03958 26.2752C9.65104 23.0575 11.3583 23.9106 15.3917 27.5398C19.424 31.1689 21.1313 32.0221 23.7437 28.8054M42.0719 14.6804V39.9867C42.0719 40.7742 41.4385 41.4096 40.65 41.4096H6.11042C5.32188 41.4096 4.6875 40.7742 4.6875 39.9867V14.7231C4.6875 13.9356 5.32292 13.3002 6.11042 13.3002H37.1771" stroke="black" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+                    </span>
+                    Pizarra
+                </button>
+                <button class="opcion-tab-pizarra">
+                    <span class="icono-tab-pizarra">
+                    
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.2815 16.4764H26.7148M13.2815 23.523H22.8615M19.9981 35.4164C23.3471 35.4156 26.6048 34.3244 29.2785 32.3077C31.9521 30.291 33.8964 27.4585 34.8173 24.2387C35.7381 21.0188 35.5854 17.5866 34.3823 14.4612C33.1791 11.3358 30.991 8.68716 28.1488 6.91586C25.3066 5.14457 21.9649 4.34695 18.629 4.64364C15.2932 4.94032 12.1448 6.31518 9.65976 8.56027C7.17476 10.8054 5.48841 13.7986 4.85574 17.0873C4.22307 20.3759 4.67849 23.7812 6.15313 26.788C6.33313 27.1547 6.39313 27.568 6.30146 27.9647L4.94146 33.858C4.90312 34.0234 4.90752 34.1958 4.95424 34.3591C5.00096 34.5223 5.08847 34.6709 5.20852 34.791C5.32857 34.911 5.4772 34.9985 5.64042 35.0452C5.80364 35.092 5.97607 35.0964 6.14146 35.058L12.0331 33.6964C12.4309 33.6093 12.8466 33.6622 13.2098 33.8464C15.3221 34.8837 17.6449 35.4209 19.9981 35.4164Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+                    </span>
+                    Chat
+                </button>
+            </div>
+
+            <div class="video-contenido-principal-pizarra">
+                <div class="pizarra-virtual">
+                    </div>
+            </div>
+
+            <div class="controles-flotantes-video-pizarra">
+                <button class="control-btn-video-pizarra" aria-label="Activar/Desactivar cámara">
+                    <svg width="50" height="37" viewBox="0 0 50 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M46.8009 6.78171C46.3005 6.72391 45.794 6.8137 45.3439 7.04004L33.582 12.9171V23.2505L45.3439 29.1275C45.7373 29.3241 46.1743 29.417 46.6136 29.3974C47.0529 29.3779 47.48 29.2465 47.8543 29.0157C48.2287 28.785 48.5379 28.4625 48.7527 28.0788C48.9676 27.6951 49.0809 27.2629 49.082 26.8232V9.34437C49.0813 8.71208 48.8487 8.102 48.4283 7.6297C48.0079 7.1574 47.4289 6.85569 46.8009 6.78171Z" fill="black"/>
+    <path d="M7.75 0C3.50042 0 0 3.50042 0 7.75V28.4167C0 32.6662 3.50042 36.1667 7.75 36.1667H28.4167C32.6662 36.1667 36.1667 32.6662 36.1667 28.4167V7.75C36.1667 3.50042 32.6662 0 28.4167 0H7.75Z" fill="black"/>
+    </svg>
+        </button>
+                <button class="control-btn-video-pizarra mic-off" aria-label="Micrófono silenciado">
+                    <svg width="31" height="35" viewBox="0 0 31 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21.4978 18.2881C21.961 17.3591 22.2064 16.3366 22.2153 15.2986V6.75689C22.1964 5.06939 21.5538 3.44857 20.4111 2.20665C19.2685 0.964721 17.7067 0.189548 16.0266 0.0304487C14.3465 -0.12865 12.667 0.33958 11.3116 1.34494C9.95611 2.35031 9.02063 3.82168 8.68532 5.47564M27.3403 15.2986C27.3403 14.8455 27.1603 14.411 26.84 14.0906C26.5196 13.7702 26.0851 13.5902 25.632 13.5902C25.1789 13.5902 24.7444 13.7702 24.424 14.0906C24.1036 14.411 23.9237 14.8455 23.9237 15.2986C23.9187 16.7911 23.5115 18.2546 22.7449 19.5352L25.2562 22.1319C26.6309 20.1197 27.3581 17.7355 27.3403 15.2986ZM15.382 22.1319H15.6553L8.54866 15.0081V15.2986C8.54866 17.1109 9.2686 18.849 10.5501 20.1305C11.8316 21.412 13.5697 22.1319 15.382 22.1319ZM30.2616 29.4606L2.92824 2.12731C2.76896 1.96802 2.57986 1.84167 2.37175 1.75547C2.16364 1.66927 1.94058 1.6249 1.71532 1.6249C1.49006 1.6249 1.26701 1.66927 1.0589 1.75547C0.850785 1.84167 0.661689 1.96802 0.502407 2.12731C0.180721 2.44899 0 2.88529 0 3.34022C0 3.79515 0.180721 4.23145 0.502407 4.55314L14.1691 18.2198L27.8357 31.8865C27.9946 32.0466 28.1835 32.1737 28.3917 32.2604C28.5999 32.3471 28.8231 32.3918 29.0487 32.3918C29.2742 32.3918 29.4975 32.3471 29.7056 32.2604C29.9138 32.1737 30.1028 32.0466 30.2616 31.8865C30.4217 31.7277 30.5488 31.5387 30.6355 31.3305C30.7222 31.1224 30.7669 30.8991 30.7669 30.6736C30.7669 30.448 30.7222 30.2247 30.6355 30.0166C30.5488 29.8084 30.4217 29.6194 30.2616 29.4606Z" fill="#1E1E1E"/>
+    <path d="M20.5091 30.6732H17.0924V27.1198C18.0592 26.9853 19.0058 26.7328 19.9112 26.3682L17.1779 23.6348C16.5898 23.7719 15.9879 23.8407 15.3841 23.8398C13.1187 23.8398 10.9461 22.9399 9.34424 21.338C7.74237 19.7362 6.84245 17.5636 6.84245 15.2982C6.84245 14.8451 6.66246 14.4106 6.34209 14.0902C6.02171 13.7698 5.58719 13.5898 5.13411 13.5898C4.68104 13.5898 4.24652 13.7698 3.92614 14.0902C3.60577 14.4106 3.42578 14.8451 3.42578 15.2982C3.42915 18.1713 4.46685 20.9472 6.34905 23.118C8.23124 25.2888 10.8321 26.7094 13.6758 27.1198V30.6732H10.2591C9.80604 30.6732 9.37152 30.8532 9.05114 31.1735C8.73077 31.4939 8.55078 31.9284 8.55078 32.3815C8.55078 32.8346 8.73077 33.2691 9.05114 33.5895C9.37152 33.9099 9.80604 34.0898 10.2591 34.0898H20.5091C20.9622 34.0898 21.3967 33.9099 21.7171 33.5895C22.0375 33.2691 22.2174 32.8346 22.2174 32.3815C22.2174 31.9284 22.0375 31.4939 21.7171 31.1735C21.3967 30.8532 20.9622 30.6732 20.5091 30.6732Z" fill="#1E1E1E"/>
+    </svg>
+                </button>
+                <button class="control-btn-video-pizarra colgar" aria-label="Colgar">
+
+                    
+    <svg width="38" height="19" viewBox="0 0 38 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.76312 18.5569L9.27563 17.8444C11.5425 17.2013 13.125 14.9681 13.125 12.4088C13.125 12.4088 13.125 9.3075 18.75 9.3075C24.375 9.3075 24.375 12.4088 24.375 12.4088C24.375 14.9681 25.9575 17.2013 28.2244 17.8462L30.7369 18.5588C34.1587 19.5263 37.5 16.7063 37.5 12.8438C37.5 10.5244 36.9806 8.19938 35.4694 6.56813C32.925 3.825 27.7631 0 18.75 0C9.73687 0 4.575 3.82313 2.03062 6.56813C0.519375 8.19938 0 10.5244 0 12.8438C0 16.7063 3.34125 19.5281 6.76312 18.5569Z" fill="#FF0000"/>
+    </svg>
+                </button>
+
+            </div>
+
+        </div> <aside class="video-sidebar-pizarra">
+            <div class="video-participante-pizarra">
+                <img src="../assets/images/ima-chica1.png" alt="Video de Alexandra Meza Soza" class="video-placeholder-sidebar-pizarra">
+                <span class="nombre-participante-video-pizarra">Alexandra Meza Soza</span>
+            </div>
+            <div class="video-participante-pizarra">
+                <img src="../assets/images/ima-chico1.png" alt="Video de Carlos Quispe Medina" class="video-placeholder-sidebar-pizarra">
+                <span class="nombre-participante-video-pizarra">Carlos Quispe Medina</span>
+            </div>
+        </aside>
+
+    </section>
+
+
+
+    <section class="seccion-busqueda-principal panel-seccion" id="panel-buscar">
+    
+<h1 class="titulo-busqueda">Encuentra tu tutor ideal</h1>
+    
+    <div class="contenedor-barra-busqueda-principal">
+        <div class="campo-busqueda-wrapper-principal" style="display: flex; align-items: center;">
+            <span class="icono-lupa-busqueda">
+                <svg width="30" height="20" viewBox="0 0 54 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.623 0.5C29.7915 0.500002 35.6893 2.39233 40.0215 5.73633C44.3507 9.07808 46.746 13.5789 46.7461 18.2344C46.7461 22.8899 44.3507 27.3906 40.0215 30.7324C35.6892 34.0765 29.7916 35.9697 23.623 35.9697C17.4545 35.9697 11.5569 34.0765 7.22461 30.7324C2.89538 27.3906 0.5 22.8899 0.5 18.2344C0.500127 13.5789 2.89539 9.07808 7.22461 5.73633C11.5568 2.39234 17.4546 0.5 23.623 0.5ZM23.623 4.05859C18.8275 4.05859 14.2096 5.52859 10.7891 8.16895C7.366 10.8114 5.4054 14.427 5.40527 18.2344C5.40527 22.0419 7.36582 25.6582 10.7891 28.3008C14.2096 30.9411 18.8275 32.4111 23.623 32.4111C25.9998 32.4111 28.3554 32.0492 30.5557 31.3457C32.7557 30.6422 34.7621 29.6091 36.457 28.3008C38.1519 26.9924 39.5057 25.4324 40.4326 23.7051C41.36 21.9768 41.8398 20.1169 41.8398 18.2344C41.8398 16.352 41.36 14.4928 40.4326 12.7646C39.5057 11.0374 38.1519 9.47734 36.457 8.16895C34.762 6.86058 32.7558 5.82651 30.5557 5.12305C28.3554 4.41954 25.9998 4.05859 23.623 4.05859Z" fill="black" stroke="black"/>
+<path d="M38.4717 27.8516C39.158 27.8535 39.7971 28.0672 40.251 28.4199L51.9883 37.5371C52.4209 37.8873 52.6253 38.3232 52.6191 38.7402C52.6128 39.1597 52.3926 39.5956 51.9434 39.9404C51.4912 40.2875 50.8594 40.498 50.1807 40.501C49.504 40.504 48.87 40.3008 48.4121 39.959L36.6768 30.8438C36.2256 30.4934 36.0102 30.0507 36.0117 29.627C36.0133 29.203 36.2323 28.7609 36.6865 28.4121L36.7158 28.3896C37.1714 28.0519 37.7995 27.8497 38.4717 27.8516Z" fill="black" stroke="black"/>
+</svg>
+            </span>
+            <input type="text" id="input-busqueda-principal" class="campo-busqueda-principal" placeholder="Busca por curso (ej. Python) o tutor...">
+        </div>
+        <button class="boton-buscar-principal" id="btn-buscar-principal">Buscar</button>
+    </div>
+
+    <div id="contenido-inicial-busqueda">
+        <div class="seccion-recomendados">
+            <h2 class="subtitulo-seccion">Recomendados para ti</h2>
+
+            <div class="tarjetas-recomendados" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            
+            <article class="tarjeta-tutor-dashboard">
+                <div class="tutor-info">
+                    <img src="../assets/images/ima-foto-victor.png" alt="Foto Tutor" class="tutor-foto">
+                    <div class="tutor-datos">
+                        <h3 class="tutor-nombre">Victor Alberca</h3>
+                        <p class="tutor-carrera">Ingeniería de Software</p>
+                        <div class="tutor-rating">⭐ 4.8</div>
+                    </div>
+                </div>
+                <div class="tutor-tags">
+                    <span class="tag-tutor">SQL</span>
+                    <span class="tag-tutor">Base de Datos</span>
+                </div>
+                <div class="tutor-acciones">
+                    <button class="btn-ver-perfil" onclick="mostrarSeccionEstudiante('panel-tutores')">Perfil</button>
+                    <button class="btn-solicitar">Solicitar</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-tutor-dashboard">
+                <div class="tutor-info">
+                    <img src="../assets/images/ima-chica1.png" alt="Foto Tutor" class="tutor-foto">
+                    <div class="tutor-datos">
+                        <h3 class="tutor-nombre">Maria Lopez</h3>
+                        <p class="tutor-carrera">Diseño Gráfico</p>
+                        <div class="tutor-rating">⭐ 4.9</div>
+                    </div>
+                </div>
+                <div class="tutor-tags">
+                    <span class="tag-tutor">Figma</span>
+                    <span class="tag-tutor">UX/UI</span>
+                </div>
+                <div class="tutor-acciones">
+                    <button class="btn-ver-perfil">Perfil</button>
+                    <button class="btn-solicitar">Solicitar</button>
+                </div>
+            </article>
+
+        </div>
+
+
+        </div>
+    </div>
+
+    <div id="resultados-busqueda-wrapper" style="display: none; margin-top: 30px;">
+        <h2 class="subtitulo-seccion">Resultados de búsqueda: <span id="termino-buscado-display" style="color: #005a9c;"></span></h2>
+        <button id="btn-limpiar-busqueda" style="margin-bottom: 20px; background: none; border: none; color: #666; text-decoration: underline; cursor: pointer;">
+            ← Volver a recomendados
+        </button>
+        
+        <div class="tarjetas-recomendados" id="lista-resultados-dinamica" style="justify-content: flex-start; flex-wrap: wrap; gap: 20px;">
+        </div>
+        
+        <div id="mensaje-no-resultados" style="display: none; text-align: center; width: 100%; color: #666; margin-top: 20px;">
+            <p>No encontramos tutores con ese criterio. Prueba con "SQL", "Figma" o "Victor".</p>
+        </div>
+    </div>
+
+    </section>
+
+
+
+    <section class="seccion-sesiones panel-seccion" id="panel-sesiones-pasadas-ejemplo">
+
+    <h2 class="titulo-sesiones">¿Que hacemos hoy?</h2>
+
+    <div class="contenedor-barra-busqueda">
+            <div class="campo-busqueda-wrapper">
+                <span class="icono-lupa-busqueda">
+    <img src="/imagenes/imagen-lupa.png" alt="imagen lupa">
+                </span>
+                <input type="text" class="campo-busqueda" placeholder="Busca un tema...">
+            </div>
+            <button class="boton-filtros">
+                Filtros 
+                <span class="icono-filtro">
+
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M31.875 17.9998H13.3425M6.801 17.9998H4.125M6.801 17.9998C6.801 17.1326 7.14552 16.3008 7.75876 15.6876C8.372 15.0744 9.20374 14.7298 10.071 14.7298C10.9383 14.7298 11.77 15.0744 12.3832 15.6876C12.9965 16.3008 13.341 17.1326 13.341 17.9998C13.341 18.8671 12.9965 19.6988 12.3832 20.3121C11.77 20.9253 10.9383 21.2698 10.071 21.2698C9.20374 21.2698 8.372 20.9253 7.75876 20.3121C7.14552 19.6988 6.801 18.8671 6.801 17.9998ZM31.875 27.9103H23.253M23.253 27.9103C23.253 28.7778 22.9077 29.6105 22.2943 30.2239C21.6809 30.8372 20.849 31.1818 19.9815 31.1818C19.1142 31.1818 18.2825 30.8358 17.6693 30.2226C17.056 29.6093 16.7115 28.7776 16.7115 27.9103M23.253 27.9103C23.253 27.0429 22.9077 26.2117 22.2943 25.5983C21.6809 24.9849 20.849 24.6403 19.9815 24.6403C19.1142 24.6403 18.2825 24.9849 17.6693 25.5981C17.056 26.2113 16.7115 27.0431 16.7115 27.9103M16.7115 27.9103H4.125M31.875 8.08934H27.2175M20.676 8.08934H4.125M20.676 8.08934C20.676 7.22208 21.0205 6.39034 21.6338 5.7771C22.247 5.16385 23.0787 4.81934 23.946 4.81934C24.3754 4.81934 24.8006 4.90392 25.1974 5.06825C25.5941 5.23258 25.9546 5.47345 26.2582 5.7771C26.5619 6.08074 26.8028 6.44123 26.9671 6.83796C27.1314 7.2347 27.216 7.65991 27.216 8.08934C27.216 8.51876 27.1314 8.94398 26.9671 9.34071C26.8028 9.73745 26.5619 10.0979 26.2582 10.4016C25.9546 10.7052 25.5941 10.9461 25.1974 11.1104C24.8006 11.2748 24.3754 11.3593 23.946 11.3593C23.0787 11.3593 22.247 11.0148 21.6338 10.4016C21.0205 9.78833 20.676 8.95659 20.676 8.08934Z" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+</svg>
+
+                </span>
+        </button>
+    </div>
+
+    <h3 class="subtitulo-sesiones">Sesiones pasadas</h3>
+
+    <div class="lista-sesiones">
+
+        <div class="tarjeta-sesion">
+            <div class="sesion-imagen-container">
+                <img src="" alt="Miniatura del curso Calculo" class="sesion-imagen">
+                <span class="icono-verificado-sesion">
+                    
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4449 0.59161C10.3059 0.369463 10.101 0.196189 9.85894 0.0959077C9.61684 -0.00437349 9.3495 -0.0266726 9.09412 0.0321152L7.28168 0.44846C7.09594 0.491154 6.90293 0.491154 6.71718 0.44846L4.90474 0.0321152C4.64937 -0.0266726 4.38203 -0.00437349 4.13992 0.0959077C3.89782 0.196189 3.693 0.369463 3.55398 0.59161L2.56611 2.16827C2.4653 2.32957 2.32922 2.46566 2.16793 2.56748L0.591369 3.55542C0.36962 3.69432 0.196611 3.89882 0.096358 4.14053C-0.00389508 4.38224 -0.0264197 4.64916 0.0319106 4.90425L0.448228 6.71883C0.490766 6.90426 0.490766 7.09692 0.448228 7.28235L0.0319106 9.09592C-0.0266464 9.35116 -0.00423514 9.61831 0.0960288 9.86022C0.196293 10.1021 0.369428 10.3068 0.591369 10.4458L2.16793 11.4337C2.32922 11.5345 2.4653 11.6706 2.56711 11.8319L3.55499 13.4086C3.83925 13.8632 4.38157 14.088 4.90474 13.9681L6.71718 13.5517C6.90293 13.509 7.09594 13.509 7.28168 13.5517L9.09513 13.9681C9.35036 14.0266 9.61748 14.0042 9.85938 13.9039C10.1013 13.8037 10.3059 13.6305 10.4449 13.4086L11.4328 11.8319C11.5336 11.6706 11.6696 11.5345 11.8309 11.4337L13.4085 10.4458C13.6305 10.3066 13.8035 10.1017 13.9036 9.8596C14.0037 9.61749 14.0258 9.3502 13.967 9.09492L13.5516 7.28235C13.509 7.0966 13.509 6.90358 13.5516 6.71782L13.968 4.90425C14.0266 4.64912 14.0044 4.38205 13.9043 4.14015C13.8042 3.89824 13.6313 3.69352 13.4095 3.55441L11.8319 2.56647C11.6709 2.46548 11.5348 2.32935 11.4338 2.16827L10.4449 0.59161ZM9.93785 4.75203C10.0002 4.63737 10.0156 4.503 9.98094 4.37719C9.94624 4.25138 9.86409 4.14393 9.75179 4.07745C9.63948 4.01098 9.50576 3.99066 9.37878 4.02077C9.2518 4.05089 9.14145 4.12908 9.07094 4.23891L6.43493 8.70075L4.84325 7.17651C4.79603 7.12802 4.73953 7.08954 4.67712 7.06336C4.61471 7.03718 4.54766 7.02384 4.47998 7.02414C4.4123 7.02443 4.34538 7.03835 4.28319 7.06508C4.22101 7.0918 4.16485 7.13077 4.11805 7.17967C4.07126 7.22857 4.03479 7.28639 4.01082 7.34969C3.98686 7.41298 3.97588 7.48046 3.97856 7.54809C3.98123 7.61572 3.99749 7.68212 4.02638 7.74333C4.05527 7.80454 4.09619 7.8593 4.1467 7.90435L6.19704 9.86913C6.25191 9.92161 6.31794 9.96101 6.39017 9.98439C6.46241 10.0078 6.53899 10.0145 6.61421 10.0041C6.68942 9.99378 6.76132 9.96655 6.82453 9.92449C6.88775 9.88243 6.94064 9.82664 6.97927 9.76127L9.93785 4.75203Z" fill="#005A9C"/>
+</svg>
+
+                </span>
+                <span class="indicador-online-sesion"></span>
+            </div>
+
+            <div class="sesion-detalles">
+                <p><strong>Curso:</strong> Calculo</p>
+                <p><strong>Universidad:</strong> UPC</p>
+                <p><strong>Fecha:</strong> 02/05/2025</p>
+                <span class="sesion-nombre-tutor">Adrian Vilela</span>
+            </div>
+
+            <div class="sesion-acciones">
+                <a href="#" class="icono-accion-sesion favorito" aria-label="Quitar de favoritos">
+                    
+<svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.125 4.375C13.125 4.375 13.125 4.375 12.0167 2.91667C10.7333 1.225 8.8375 0 6.5625 0C2.93125 0 0 2.93125 0 6.5625C0 7.91875 0.408333 9.17292 1.10833 10.2083C2.28958 11.9729 13.125 23.3333 13.125 23.3333M13.125 4.375C13.125 4.375 13.125 4.375 14.2333 2.91667C15.5167 1.225 17.4125 0 19.6875 0C23.3188 0 26.25 2.93125 26.25 6.5625C26.25 7.91875 25.8417 9.17292 25.1417 10.2083C23.9604 11.9729 13.125 23.3333 13.125 23.3333" fill="#D2D2D2"/>
+</svg>
+
+                </a>
+                <a href="#" class="icono-accion-sesion ver" aria-label="Ver detalles">
+                    
+<svg width="34" height="24" viewBox="0 0 34 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.9583 6.9375C15.7317 6.9375 14.5553 7.42477 13.688 8.29213C12.8206 9.15949 12.3333 10.3359 12.3333 11.5625C12.3333 12.7891 12.8206 13.9655 13.688 14.8329C14.5553 15.7002 15.7317 16.1875 16.9583 16.1875C18.185 16.1875 19.3613 15.7002 20.2287 14.8329C21.0961 13.9655 21.5833 12.7891 21.5833 11.5625C21.5833 10.3359 21.0961 9.15949 20.2287 8.29213C19.3613 7.42477 18.185 6.9375 16.9583 6.9375ZM16.9583 19.2708C14.914 19.2708 12.9533 18.4587 11.5077 17.0131C10.0621 15.5675 9.25 13.6069 9.25 11.5625C9.25 9.51812 10.0621 7.55748 11.5077 6.11189C12.9533 4.66629 14.914 3.85417 16.9583 3.85417C19.0027 3.85417 20.9634 4.66629 22.4089 6.11189C23.8545 7.55748 24.6667 9.51812 24.6667 11.5625C24.6667 13.6069 23.8545 15.5675 22.4089 17.0131C20.9634 18.4587 19.0027 19.2708 16.9583 19.2708ZM16.9583 0C9.25 0 2.66708 4.79458 0 11.5625C2.66708 18.3304 9.25 23.125 16.9583 23.125C24.6667 23.125 31.2496 18.3304 33.9167 11.5625C31.2496 4.79458 24.6667 0 16.9583 0Z" fill="#183968"/>
+</svg>
+
+                </a>
+            </div>
+        </div>
+
+        <div class="tarjeta-sesion">
+            <div class="sesion-imagen-container">
+                <img src="" alt="Miniatura del curso Figma" class="sesion-imagen redonda">
+                <span class="icono-verificado-sesion">
+                    
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4449 0.59161C10.3059 0.369463 10.101 0.196189 9.85894 0.0959077C9.61684 -0.00437349 9.3495 -0.0266726 9.09412 0.0321152L7.28168 0.44846C7.09594 0.491154 6.90293 0.491154 6.71718 0.44846L4.90474 0.0321152C4.64937 -0.0266726 4.38203 -0.00437349 4.13992 0.0959077C3.89782 0.196189 3.693 0.369463 3.55398 0.59161L2.56611 2.16827C2.4653 2.32957 2.32922 2.46566 2.16793 2.56748L0.591369 3.55542C0.36962 3.69432 0.196611 3.89882 0.096358 4.14053C-0.00389508 4.38224 -0.0264197 4.64916 0.0319106 4.90425L0.448228 6.71883C0.490766 6.90426 0.490766 7.09692 0.448228 7.28235L0.0319106 9.09592C-0.0266464 9.35116 -0.00423514 9.61831 0.0960288 9.86022C0.196293 10.1021 0.369428 10.3068 0.591369 10.4458L2.16793 11.4337C2.32922 11.5345 2.4653 11.6706 2.56711 11.8319L3.55499 13.4086C3.83925 13.8632 4.38157 14.088 4.90474 13.9681L6.71718 13.5517C6.90293 13.509 7.09594 13.509 7.28168 13.5517L9.09513 13.9681C9.35036 14.0266 9.61748 14.0042 9.85938 13.9039C10.1013 13.8037 10.3059 13.6305 10.4449 13.4086L11.4328 11.8319C11.5336 11.6706 11.6696 11.5345 11.8309 11.4337L13.4085 10.4458C13.6305 10.3066 13.8035 10.1017 13.9036 9.8596C14.0037 9.61749 14.0258 9.3502 13.967 9.09492L13.5516 7.28235C13.509 7.0966 13.509 6.90358 13.5516 6.71782L13.968 4.90425C14.0266 4.64912 14.0044 4.38205 13.9043 4.14015C13.8042 3.89824 13.6313 3.69352 13.4095 3.55441L11.8319 2.56647C11.6709 2.46548 11.5348 2.32935 11.4338 2.16827L10.4449 0.59161ZM9.93785 4.75203C10.0002 4.63737 10.0156 4.503 9.98094 4.37719C9.94624 4.25138 9.86409 4.14393 9.75179 4.07745C9.63948 4.01098 9.50576 3.99066 9.37878 4.02077C9.2518 4.05089 9.14145 4.12908 9.07094 4.23891L6.43493 8.70075L4.84325 7.17651C4.79603 7.12802 4.73953 7.08954 4.67712 7.06336C4.61471 7.03718 4.54766 7.02384 4.47998 7.02414C4.4123 7.02443 4.34538 7.03835 4.28319 7.06508C4.22101 7.0918 4.16485 7.13077 4.11805 7.17967C4.07126 7.22857 4.03479 7.28639 4.01082 7.34969C3.98686 7.41298 3.97588 7.48046 3.97856 7.54809C3.98123 7.61572 3.99749 7.68212 4.02638 7.74333C4.05527 7.80454 4.09619 7.8593 4.1467 7.90435L6.19704 9.86913C6.25191 9.92161 6.31794 9.96101 6.39017 9.98439C6.46241 10.0078 6.53899 10.0145 6.61421 10.0041C6.68942 9.99378 6.76132 9.96655 6.82453 9.92449C6.88775 9.88243 6.94064 9.82664 6.97927 9.76127L9.93785 4.75203Z" fill="#005A9C"/>
+</svg>
+
+                </span>
+                <span class="indicador-online-sesion"></span>
+            </div>
+
+            <div class="sesion-detalles">
+                <p><strong>Curso:</strong> Figma</p>
+                <p><strong>Universidad:</strong> PUCP</p>
+                <p><strong>Fecha:</strong> 02/05/2025</p>
+                <span class="sesion-nombre-tutor">Victor Alberca</span>
+            </div>
+
+            <div class="sesion-acciones">
+                <a href="#" class="icono-accion-sesion no-favorito" aria-label="Añadir a favoritos">
+                    
+<svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.125 4.375C13.125 4.375 13.125 4.375 12.0167 2.91667C10.7333 1.225 8.8375 0 6.5625 0C2.93125 0 0 2.93125 0 6.5625C0 7.91875 0.408333 9.17292 1.10833 10.2083C2.28958 11.9729 13.125 23.3333 13.125 23.3333M13.125 4.375C13.125 4.375 13.125 4.375 14.2333 2.91667C15.5167 1.225 17.4125 0 19.6875 0C23.3188 0 26.25 2.93125 26.25 6.5625C26.25 7.91875 25.8417 9.17292 25.1417 10.2083C23.9604 11.9729 13.125 23.3333 13.125 23.3333" fill="#D2D2D2"/>
+</svg>
+
+                </a>
+                <a href="#" class="icono-accion-sesion ver" aria-label="Ver detalles">
+                    
+<svg width="34" height="24" viewBox="0 0 34 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.9583 6.9375C15.7317 6.9375 14.5553 7.42477 13.688 8.29213C12.8206 9.15949 12.3333 10.3359 12.3333 11.5625C12.3333 12.7891 12.8206 13.9655 13.688 14.8329C14.5553 15.7002 15.7317 16.1875 16.9583 16.1875C18.185 16.1875 19.3613 15.7002 20.2287 14.8329C21.0961 13.9655 21.5833 12.7891 21.5833 11.5625C21.5833 10.3359 21.0961 9.15949 20.2287 8.29213C19.3613 7.42477 18.185 6.9375 16.9583 6.9375ZM16.9583 19.2708C14.914 19.2708 12.9533 18.4587 11.5077 17.0131C10.0621 15.5675 9.25 13.6069 9.25 11.5625C9.25 9.51812 10.0621 7.55748 11.5077 6.11189C12.9533 4.66629 14.914 3.85417 16.9583 3.85417C19.0027 3.85417 20.9634 4.66629 22.4089 6.11189C23.8545 7.55748 24.6667 9.51812 24.6667 11.5625C24.6667 13.6069 23.8545 15.5675 22.4089 17.0131C20.9634 18.4587 19.0027 19.2708 16.9583 19.2708ZM16.9583 0C9.25 0 2.66708 4.79458 0 11.5625C2.66708 18.3304 9.25 23.125 16.9583 23.125C24.6667 23.125 31.2496 18.3304 33.9167 11.5625C31.2496 4.79458 24.6667 0 16.9583 0Z" fill="#183968"/>
+</svg>
+
+                </a>
+            </div>
+        </div>
+
+    </div> 
+  </section>
+
+
+  
+
+  <section class="seccion-resultados-busqueda panel-seccion" id="panel-tutores">
+
+    <h1 class="titulo-busqueda">Mis Tutores Favoritos</h1>
+<br>
+<div class="contenedor-barra-busqueda">
+    <div class="campo-busqueda-wrapper">
+        <span class="icono-lupa-busqueda">
+            <img src="../assets/images/imagen-lupa.png" alt="Buscar">
+        </span>
+        <input type="text" id="input-busqueda-tutores" class="campo-busqueda" placeholder="Buscar tutor...">
+    </div>
+    
+    <div class="wrapper-filtro-estudiante" style="position: relative;">
+        <button class="boton-filtros" id="btn-filtro-tutores">
+            Filtros 
+            <span class="icono-filtro">
+                <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M31.875 17.9998H13.3425M6.801 17.9998H4.125M6.801 17.9998C6.801 17.1326 7.14552 16.3008 7.75876 15.6876C8.372 15.0744 9.20374 14.7298 10.071 14.7298C10.9383 14.7298 11.77 15.0744 12.3832 15.6876C12.9965 16.3008 13.341 17.1326 13.341 17.9998C13.341 18.8671 12.9965 19.6988 12.3832 20.3121C11.77 20.9253 10.9383 21.2698 10.071 21.2698C9.20374 21.2698 8.372 20.9253 7.75876 20.3121C7.14552 19.6988 6.801 18.8671 6.801 17.9998ZM31.875 27.9103H23.253M23.253 27.9103C23.253 28.7778 22.9077 29.6105 22.2943 30.2239C21.6809 30.8372 20.849 31.1818 19.9815 31.1818C19.1142 31.1818 18.2825 30.8358 17.6693 30.2226C17.056 29.6093 16.7115 28.7776 16.7115 27.9103M23.253 27.9103C23.253 27.0429 22.9077 26.2117 22.2943 25.5983C21.6809 24.9849 20.849 24.6403 19.9815 24.6403C19.1142 24.6403 18.2825 24.9849 17.6693 25.5981C17.056 26.2113 16.7115 27.0431 16.7115 27.9103M16.7115 27.9103H4.125M31.875 8.08934H27.2175M20.676 8.08934H4.125M20.676 8.08934C20.676 7.22208 21.0205 6.39034 21.6338 5.7771C22.247 5.16385 23.0787 4.81934 23.946 4.81934C24.3754 4.81934 24.8006 4.90392 25.1974 5.06825C25.5941 5.23258 25.9546 5.47345 26.2582 5.7771C26.5619 6.08074 26.8028 6.44123 26.9671 6.83796C27.1314 7.2347 27.216 7.65991 27.216 8.08934C27.216 8.51876 27.1314 8.94398 26.9671 9.34071C26.8028 9.73745 26.5619 10.0979 26.2582 10.4016C25.9546 10.7052 25.5941 10.9461 25.1974 11.1104C24.8006 11.2748 24.3754 11.3593 23.946 11.3593C23.0787 11.3593 22.247 11.0148 21.6338 10.4016C21.0205 9.78833 20.676 8.95659 20.676 8.08934Z" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+                </svg>
+            </span>
+        </button>
+
+        <div class="menu-filtros-busqueda" id="menu-filtros-tutores">
+            <div class="opcion-filtro seleccionado" data-tipo="nombre">Por Nombre</div>
+            <div class="opcion-filtro" data-tipo="curso">Por Curso/Tema</div>
+        </div>
+    </div>
+</div>
+
+    <div class="grid-resultados">
+        
+        <div class="tarjeta-tutor" id="card-tutor-victor">
+            <a href="#" class="icono-corazon">
+                
+<svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.125 4.375C13.125 4.375 13.125 4.375 12.0167 2.91667C10.7333 1.225 8.8375 0 6.5625 0C2.93125 0 0 2.93125 0 6.5625C0 7.91875 0.408333 9.17292 1.10833 10.2083C2.28958 11.9729 13.125 23.3333 13.125 23.3333M13.125 4.375C13.125 4.375 13.125 4.375 14.2333 2.91667C15.5167 1.225 17.4125 0 19.6875 0C23.3188 0 26.25 2.93125 26.25 6.5625C26.25 7.91875 25.8417 9.17292 25.1417 10.2083C23.9604 11.9729 13.125 23.3333 13.125 23.3333" fill="#D2D2D2"/>
+</svg>
+
+            </a>
+            
+            <div class="tutor-columna-izquierda">
+                <div class="tutor-imagen-container">
+                    <img src="../assets/images/ima-foto-victor.png" alt="Foto de Victor Alberca Saavedra" class="tutor-imagen-perfil">
+                    <span class="indicador-online"></span>
+                </div>
+                <div class="tutor-rating">
+                    <span class="icono-estrella">
+                        
+<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8413 20.55L6.61631 24.3C6.34131 24.475 6.05381 24.55 5.75381 24.525C5.45381 24.5 5.19131 24.4 4.96631 24.225C4.74131 24.05 4.56631 23.8315 4.44131 23.5695C4.31631 23.3075 4.29131 23.0135 4.36631 22.6875L6.01631 15.6L0.503814 10.8375C0.253814 10.6125 0.0978137 10.356 0.0358137 10.068C-0.0261863 9.78 -0.00768639 9.499 0.0913136 9.225C0.190314 8.951 0.340314 8.726 0.541314 8.55C0.742314 8.374 1.01731 8.2615 1.36631 8.2125L8.64131 7.575L11.4538 0.9C11.5788 0.6 11.7728 0.375 12.0358 0.225C12.2988 0.0749998 12.5673 0 12.8413 0C13.1153 0 13.3838 0.0749998 13.6468 0.225C13.9098 0.375 14.1038 0.6 14.2288 0.9L17.0413 7.575L24.3163 8.2125C24.6663 8.2625 24.9413 8.375 25.1413 8.55C25.3413 8.725 25.4913 8.95 25.5913 9.225C25.6913 9.5 25.7103 9.7815 25.6483 10.0695C25.5863 10.3575 25.4298 10.6135 25.1788 10.8375L19.6663 15.6L21.3163 22.6875C21.3913 23.0125 21.3663 23.3065 21.2413 23.5695C21.1163 23.8325 20.9413 24.051 20.7163 24.225C20.4913 24.399 20.2288 24.499 19.9288 24.525C19.6288 24.551 19.3413 24.476 19.0663 24.3L12.8413 20.55Z" fill="#FFC107"/>
+</svg>
+
+                    </span>
+                    <span class="rating-numero">4.0</span>
+                    <span class="icono-verificado-tutor">
+                        
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4449 0.59161C10.3059 0.369463 10.101 0.196189 9.85894 0.0959077C9.61684 -0.00437349 9.3495 -0.0266726 9.09412 0.0321152L7.28168 0.44846C7.09594 0.491154 6.90293 0.491154 6.71718 0.44846L4.90474 0.0321152C4.64937 -0.0266726 4.38203 -0.00437349 4.13992 0.0959077C3.89782 0.196189 3.693 0.369463 3.55398 0.59161L2.56611 2.16827C2.4653 2.32957 2.32922 2.46566 2.16793 2.56748L0.591369 3.55542C0.36962 3.69432 0.196611 3.89882 0.096358 4.14053C-0.00389508 4.38224 -0.0264197 4.64916 0.0319106 4.90425L0.448228 6.71883C0.490766 6.90426 0.490766 7.09692 0.448228 7.28235L0.0319106 9.09592C-0.0266464 9.35116 -0.00423514 9.61831 0.0960288 9.86022C0.196293 10.1021 0.369428 10.3068 0.591369 10.4458L2.16793 11.4337C2.32922 11.5345 2.4653 11.6706 2.56711 11.8319L3.55499 13.4086C3.83925 13.8632 4.38157 14.088 4.90474 13.9681L6.71718 13.5517C6.90293 13.509 7.09594 13.509 7.28168 13.5517L9.09513 13.9681C9.35036 14.0266 9.61748 14.0042 9.85938 13.9039C10.1013 13.8037 10.3059 13.6305 10.4449 13.4086L11.4328 11.8319C11.5336 11.6706 11.6696 11.5345 11.8309 11.4337L13.4085 10.4458C13.6305 10.3066 13.8035 10.1017 13.9036 9.8596C14.0037 9.61749 14.0258 9.3502 13.967 9.09492L13.5516 7.28235C13.509 7.0966 13.509 6.90358 13.5516 6.71782L13.968 4.90425C14.0266 4.64912 14.0044 4.38205 13.9043 4.14015C13.8042 3.89824 13.6313 3.69352 13.4095 3.55441L11.8319 2.56647C11.6709 2.46548 11.5348 2.32935 11.4338 2.16827L10.4449 0.59161ZM9.93785 4.75203C10.0002 4.63737 10.0156 4.503 9.98094 4.37719C9.94624 4.25138 9.86409 4.14393 9.75179 4.07745C9.63948 4.01098 9.50576 3.99066 9.37878 4.02077C9.2518 4.05089 9.14145 4.12908 9.07094 4.23891L6.43493 8.70075L4.84325 7.17651C4.79603 7.12802 4.73953 7.08954 4.67712 7.06336C4.61471 7.03718 4.54766 7.02384 4.47998 7.02414C4.4123 7.02443 4.34538 7.03835 4.28319 7.06508C4.22101 7.0918 4.16485 7.13077 4.11805 7.17967C4.07126 7.22857 4.03479 7.28639 4.01082 7.34969C3.98686 7.41298 3.97588 7.48046 3.97856 7.54809C3.98123 7.61572 3.99749 7.68212 4.02638 7.74333C4.05527 7.80454 4.09619 7.8593 4.1467 7.90435L6.19704 9.86913C6.25191 9.92161 6.31794 9.96101 6.39017 9.98439C6.46241 10.0078 6.53899 10.0145 6.61421 10.0041C6.68942 9.99378 6.76132 9.96655 6.82453 9.92449C6.88775 9.88243 6.94064 9.82664 6.97927 9.76127L9.93785 4.75203Z" fill="#005A9C"/>
+</svg>
+
+                    </span>
+                </div>
+            </div>
+
+            <div class="tutor-columna-derecha">
+                <h3 class="tutor-nombre">Victor Alberca Saavedra</h3>
+                <p class="tutor-detalle"><strong>Universidad:</strong> PUCP</p>
+                <p class="tutor-detalle"><strong>Disponibilidad:</strong> Lunes, Martes, Miercoles, Jueves y Viernes</p>
+                <p class="tutor-detalle"><strong>Temas de dominio:</strong></p>
+                <div class="tutor-tags">
+                    <span class="tag-tutor">Figma</span>
+                    <span class="tag-tutor">Algoritmos</span>
+                    <span class="tag-tutor">SQL</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-tutor">
+            <a href="#" class="icono-corazon">
+                
+<svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.125 4.375C13.125 4.375 13.125 4.375 12.0167 2.91667C10.7333 1.225 8.8375 0 6.5625 0C2.93125 0 0 2.93125 0 6.5625C0 7.91875 0.408333 9.17292 1.10833 10.2083C2.28958 11.9729 13.125 23.3333 13.125 23.3333M13.125 4.375C13.125 4.375 13.125 4.375 14.2333 2.91667C15.5167 1.225 17.4125 0 19.6875 0C23.3188 0 26.25 2.93125 26.25 6.5625C26.25 7.91875 25.8417 9.17292 25.1417 10.2083C23.9604 11.9729 13.125 23.3333 13.125 23.3333" fill="#D2D2D2"/>
+</svg>
+
+            </a>
+            
+            <div class="tutor-columna-izquierda">
+                <div class="tutor-imagen-container">
+                    <img src="../assets/images/ima-adrian.png" alt="Foto de Adrian Videla de la Cruz" class="tutor-imagen-perfil">
+                    </div>
+                <div class="tutor-rating">
+                    <span class="icono-estrella">
+                        
+<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8413 20.55L6.61631 24.3C6.34131 24.475 6.05381 24.55 5.75381 24.525C5.45381 24.5 5.19131 24.4 4.96631 24.225C4.74131 24.05 4.56631 23.8315 4.44131 23.5695C4.31631 23.3075 4.29131 23.0135 4.36631 22.6875L6.01631 15.6L0.503814 10.8375C0.253814 10.6125 0.0978137 10.356 0.0358137 10.068C-0.0261863 9.78 -0.00768639 9.499 0.0913136 9.225C0.190314 8.951 0.340314 8.726 0.541314 8.55C0.742314 8.374 1.01731 8.2615 1.36631 8.2125L8.64131 7.575L11.4538 0.9C11.5788 0.6 11.7728 0.375 12.0358 0.225C12.2988 0.0749998 12.5673 0 12.8413 0C13.1153 0 13.3838 0.0749998 13.6468 0.225C13.9098 0.375 14.1038 0.6 14.2288 0.9L17.0413 7.575L24.3163 8.2125C24.6663 8.2625 24.9413 8.375 25.1413 8.55C25.3413 8.725 25.4913 8.95 25.5913 9.225C25.6913 9.5 25.7103 9.7815 25.6483 10.0695C25.5863 10.3575 25.4298 10.6135 25.1788 10.8375L19.6663 15.6L21.3163 22.6875C21.3913 23.0125 21.3663 23.3065 21.2413 23.5695C21.1163 23.8325 20.9413 24.051 20.7163 24.225C20.4913 24.399 20.2288 24.499 19.9288 24.525C19.6288 24.551 19.3413 24.476 19.0663 24.3L12.8413 20.55Z" fill="#FFC107"/>
+</svg>
+                    </span>
+                    <span class="rating-numero">3.7</span>
+                    <span class="icono-verificado-tutor">
+
+                    </span>
+                </div>
+            </div>
+
+            <div class="tutor-columna-derecha">
+                <h3 class="tutor-nombre">Adrian Videla de la Cruz</h3>
+                <p class="tutor-detalle"><strong>Universidad:</strong> UNMSM</p>
+                <p class="tutor-detalle"><strong>Disponibilidad:</strong> Lunes, Martes y Jueves</p>
+                <p class="tutor-detalle"><strong>Temas de dominio:</strong></p>
+                <div class="tutor-tags">
+                    <span class="tag-tutor">Matematica Computacional</span>
+                    <span class="tag-tutor">Algoritmos</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-tutor">
+            <a href="#" class="icono-corazon">
+                
+<svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.125 4.375C13.125 4.375 13.125 4.375 12.0167 2.91667C10.7333 1.225 8.8375 0 6.5625 0C2.93125 0 0 2.93125 0 6.5625C0 7.91875 0.408333 9.17292 1.10833 10.2083C2.28958 11.9729 13.125 23.3333 13.125 23.3333M13.125 4.375C13.125 4.375 13.125 4.375 14.2333 2.91667C15.5167 1.225 17.4125 0 19.6875 0C23.3188 0 26.25 2.93125 26.25 6.5625C26.25 7.91875 25.8417 9.17292 25.1417 10.2083C23.9604 11.9729 13.125 23.3333 13.125 23.3333" fill="#D2D2D2"/>
+</svg>
+
+            </a>
+            
+            <div class="tutor-columna-izquierda">
+                <div class="tutor-imagen-container">
+                    <img src="../assets/images/ima-foto-usuario.png" alt="Foto de Stephano Galvez Cepero" class="tutor-imagen-perfil">
+                    <span class="indicador-online"></span>
+                </div>
+                <div class="tutor-rating">
+                    <span class="icono-estrella">
+                        
+<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8413 20.55L6.61631 24.3C6.34131 24.475 6.05381 24.55 5.75381 24.525C5.45381 24.5 5.19131 24.4 4.96631 24.225C4.74131 24.05 4.56631 23.8315 4.44131 23.5695C4.31631 23.3075 4.29131 23.0135 4.36631 22.6875L6.01631 15.6L0.503814 10.8375C0.253814 10.6125 0.0978137 10.356 0.0358137 10.068C-0.0261863 9.78 -0.00768639 9.499 0.0913136 9.225C0.190314 8.951 0.340314 8.726 0.541314 8.55C0.742314 8.374 1.01731 8.2615 1.36631 8.2125L8.64131 7.575L11.4538 0.9C11.5788 0.6 11.7728 0.375 12.0358 0.225C12.2988 0.0749998 12.5673 0 12.8413 0C13.1153 0 13.3838 0.0749998 13.6468 0.225C13.9098 0.375 14.1038 0.6 14.2288 0.9L17.0413 7.575L24.3163 8.2125C24.6663 8.2625 24.9413 8.375 25.1413 8.55C25.3413 8.725 25.4913 8.95 25.5913 9.225C25.6913 9.5 25.7103 9.7815 25.6483 10.0695C25.5863 10.3575 25.4298 10.6135 25.1788 10.8375L19.6663 15.6L21.3163 22.6875C21.3913 23.0125 21.3663 23.3065 21.2413 23.5695C21.1163 23.8325 20.9413 24.051 20.7163 24.225C20.4913 24.399 20.2288 24.499 19.9288 24.525C19.6288 24.551 19.3413 24.476 19.0663 24.3L12.8413 20.55Z" fill="#FFC107"/>
+</svg>
+                    </span>
+                    <span class="rating-numero">4.2</span>
+                    </div>
+            </div>
+
+            <div class="tutor-columna-derecha">
+                <h3 class="tutor-nombre">Stephano Galvez Cepero</h3>
+                <p class="tutor-detalle"><strong>Universidad:</strong> UNI</p>
+                <p class="tutor-detalle"><strong>Disponibilidad:</strong> Sabado y Domingo</p>
+                <p class="tutor-detalle"><strong>Temas de dominio:</strong></p>
+                <div class="tutor-tags">
+                    <span class="tag-tutor">Python</span>
+                    <span class="tag-tutor">Algoritmos</span>
+                    <span class="tag-tutor">CSS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-tutor">
+            <a href="#" class="icono-corazon favorito">
+                
+<svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.125 4.375C13.125 4.375 13.125 4.375 12.0167 2.91667C10.7333 1.225 8.8375 0 6.5625 0C2.93125 0 0 2.93125 0 6.5625C0 7.91875 0.408333 9.17292 1.10833 10.2083C2.28958 11.9729 13.125 23.3333 13.125 23.3333M13.125 4.375C13.125 4.375 13.125 4.375 14.2333 2.91667C15.5167 1.225 17.4125 0 19.6875 0C23.3188 0 26.25 2.93125 26.25 6.5625C26.25 7.91875 25.8417 9.17292 25.1417 10.2083C23.9604 11.9729 13.125 23.3333 13.125 23.3333" fill="#FF0404"/>
+</svg>
+
+            </a>
+            
+            <div class="tutor-columna-izquierda">
+                <div class="tutor-imagen-container">
+                    <img src="../assets/images/ima-foto-adrian-guevara.png" alt="Foto de Adrian Guevara Romero" class="tutor-imagen-perfil">
+                    <span class="indicador-online"></span>
+                </div>
+                <div class="tutor-rating">
+                    <span class="icono-estrella">
+<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8413 20.55L6.61631 24.3C6.34131 24.475 6.05381 24.55 5.75381 24.525C5.45381 24.5 5.19131 24.4 4.96631 24.225C4.74131 24.05 4.56631 23.8315 4.44131 23.5695C4.31631 23.3075 4.29131 23.0135 4.36631 22.6875L6.01631 15.6L0.503814 10.8375C0.253814 10.6125 0.0978137 10.356 0.0358137 10.068C-0.0261863 9.78 -0.00768639 9.499 0.0913136 9.225C0.190314 8.951 0.340314 8.726 0.541314 8.55C0.742314 8.374 1.01731 8.2615 1.36631 8.2125L8.64131 7.575L11.4538 0.9C11.5788 0.6 11.7728 0.375 12.0358 0.225C12.2988 0.0749998 12.5673 0 12.8413 0C13.1153 0 13.3838 0.0749998 13.6468 0.225C13.9098 0.375 14.1038 0.6 14.2288 0.9L17.0413 7.575L24.3163 8.2125C24.6663 8.2625 24.9413 8.375 25.1413 8.55C25.3413 8.725 25.4913 8.95 25.5913 9.225C25.6913 9.5 25.7103 9.7815 25.6483 10.0695C25.5863 10.3575 25.4298 10.6135 25.1788 10.8375L19.6663 15.6L21.3163 22.6875C21.3913 23.0125 21.3663 23.3065 21.2413 23.5695C21.1163 23.8325 20.9413 24.051 20.7163 24.225C20.4913 24.399 20.2288 24.499 19.9288 24.525C19.6288 24.551 19.3413 24.476 19.0663 24.3L12.8413 20.55Z" fill="#FFC107"/>
+</svg>
+                    </span>
+                    <span class="rating-numero">5.0</span>
+                    <span class="icono-verificado-tutor">
+                        
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4449 0.59161C10.3059 0.369463 10.101 0.196189 9.85894 0.0959077C9.61684 -0.00437349 9.3495 -0.0266726 9.09412 0.0321152L7.28168 0.44846C7.09594 0.491154 6.90293 0.491154 6.71718 0.44846L4.90474 0.0321152C4.64937 -0.0266726 4.38203 -0.00437349 4.13992 0.0959077C3.89782 0.196189 3.693 0.369463 3.55398 0.59161L2.56611 2.16827C2.4653 2.32957 2.32922 2.46566 2.16793 2.56748L0.591369 3.55542C0.36962 3.69432 0.196611 3.89882 0.096358 4.14053C-0.00389508 4.38224 -0.0264197 4.64916 0.0319106 4.90425L0.448228 6.71883C0.490766 6.90426 0.490766 7.09692 0.448228 7.28235L0.0319106 9.09592C-0.0266464 9.35116 -0.00423514 9.61831 0.0960288 9.86022C0.196293 10.1021 0.369428 10.3068 0.591369 10.4458L2.16793 11.4337C2.32922 11.5345 2.4653 11.6706 2.56711 11.8319L3.55499 13.4086C3.83925 13.8632 4.38157 14.088 4.90474 13.9681L6.71718 13.5517C6.90293 13.509 7.09594 13.509 7.28168 13.5517L9.09513 13.9681C9.35036 14.0266 9.61748 14.0042 9.85938 13.9039C10.1013 13.8037 10.3059 13.6305 10.4449 13.4086L11.4328 11.8319C11.5336 11.6706 11.6696 11.5345 11.8309 11.4337L13.4085 10.4458C13.6305 10.3066 13.8035 10.1017 13.9036 9.8596C14.0037 9.61749 14.0258 9.3502 13.967 9.09492L13.5516 7.28235C13.509 7.0966 13.509 6.90358 13.5516 6.71782L13.968 4.90425C14.0266 4.64912 14.0044 4.38205 13.9043 4.14015C13.8042 3.89824 13.6313 3.69352 13.4095 3.55441L11.8319 2.56647C11.6709 2.46548 11.5348 2.32935 11.4338 2.16827L10.4449 0.59161ZM9.93785 4.75203C10.0002 4.63737 10.0156 4.503 9.98094 4.37719C9.94624 4.25138 9.86409 4.14393 9.75179 4.07745C9.63948 4.01098 9.50576 3.99066 9.37878 4.02077C9.2518 4.05089 9.14145 4.12908 9.07094 4.23891L6.43493 8.70075L4.84325 7.17651C4.79603 7.12802 4.73953 7.08954 4.67712 7.06336C4.61471 7.03718 4.54766 7.02384 4.47998 7.02414C4.4123 7.02443 4.34538 7.03835 4.28319 7.06508C4.22101 7.0918 4.16485 7.13077 4.11805 7.17967C4.07126 7.22857 4.03479 7.28639 4.01082 7.34969C3.98686 7.41298 3.97588 7.48046 3.97856 7.54809C3.98123 7.61572 3.99749 7.68212 4.02638 7.74333C4.05527 7.80454 4.09619 7.8593 4.1467 7.90435L6.19704 9.86913C6.25191 9.92161 6.31794 9.96101 6.39017 9.98439C6.46241 10.0078 6.53899 10.0145 6.61421 10.0041C6.68942 9.99378 6.76132 9.96655 6.82453 9.92449C6.88775 9.88243 6.94064 9.82664 6.97927 9.76127L9.93785 4.75203Z" fill="#005A9C"/>
+</svg>
+
+                    </span>
+                </div>
+            </div>
+
+            <div class="tutor-columna-derecha">
+                <h3 class="tutor-nombre">Adrian Guevara Romero</h3>
+                <p class="tutor-detalle"><strong>Universidad:</strong> ULIMA</p>
+                <p class="tutor-detalle"><strong>Disponibilidad:</strong> Lunes y Miercoles</p>
+                <p class="tutor-detalle"><strong>Temas de dominio:</strong></p>
+                <div class="tutor-tags">
+                    <span class="tag-tutor">Diseño de Paginas Web</span>
+                    <span class="tag-tutor">Algoritmos</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+ </section>
+
+
+
+
+ <section class="seccion-perfil-tutor panel-seccion" id="panel-perfil-tutor">
+    
+    <div class="tarjeta-perfil-tutor">
+
+        <div class="perfil-columna-izquierda">
+            <div class="perfil-imagen-container">
+                <img src="../assets/images/ima-foto-victor.png" alt="Foto de Victor Alberca" class="perfil-imagen-grande">
+                <span class="indicador-online-perfil"></span>
+            </div>
+            
+            <div class="perfil-verificacion">
+                <span class="icono-verificado-perfil">
+                    
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4449 0.59161C10.3059 0.369463 10.101 0.196189 9.85894 0.0959077C9.61684 -0.00437349 9.3495 -0.0266726 9.09412 0.0321152L7.28168 0.44846C7.09594 0.491154 6.90293 0.491154 6.71718 0.44846L4.90474 0.0321152C4.64937 -0.0266726 4.38203 -0.00437349 4.13992 0.0959077C3.89782 0.196189 3.693 0.369463 3.55398 0.59161L2.56611 2.16827C2.4653 2.32957 2.32922 2.46566 2.16793 2.56748L0.591369 3.55542C0.36962 3.69432 0.196611 3.89882 0.096358 4.14053C-0.00389508 4.38224 -0.0264197 4.64916 0.0319106 4.90425L0.448228 6.71883C0.490766 6.90426 0.490766 7.09692 0.448228 7.28235L0.0319106 9.09592C-0.0266464 9.35116 -0.00423514 9.61831 0.0960288 9.86022C0.196293 10.1021 0.369428 10.3068 0.591369 10.4458L2.16793 11.4337C2.32922 11.5345 2.4653 11.6706 2.56711 11.8319L3.55499 13.4086C3.83925 13.8632 4.38157 14.088 4.90474 13.9681L6.71718 13.5517C6.90293 13.509 7.09594 13.509 7.28168 13.5517L9.09513 13.9681C9.35036 14.0266 9.61748 14.0042 9.85938 13.9039C10.1013 13.8037 10.3059 13.6305 10.4449 13.4086L11.4328 11.8319C11.5336 11.6706 11.6696 11.5345 11.8309 11.4337L13.4085 10.4458C13.6305 10.3066 13.8035 10.1017 13.9036 9.8596C14.0037 9.61749 14.0258 9.3502 13.967 9.09492L13.5516 7.28235C13.509 7.0966 13.509 6.90358 13.5516 6.71782L13.968 4.90425C14.0266 4.64912 14.0044 4.38205 13.9043 4.14015C13.8042 3.89824 13.6313 3.69352 13.4095 3.55441L11.8319 2.56647C11.6709 2.46548 11.5348 2.32935 11.4338 2.16827L10.4449 0.59161ZM9.93785 4.75203C10.0002 4.63737 10.0156 4.503 9.98094 4.37719C9.94624 4.25138 9.86409 4.14393 9.75179 4.07745C9.63948 4.01098 9.50576 3.99066 9.37878 4.02077C9.2518 4.05089 9.14145 4.12908 9.07094 4.23891L6.43493 8.70075L4.84325 7.17651C4.79603 7.12802 4.73953 7.08954 4.67712 7.06336C4.61471 7.03718 4.54766 7.02384 4.47998 7.02414C4.4123 7.02443 4.34538 7.03835 4.28319 7.06508C4.22101 7.0918 4.16485 7.13077 4.11805 7.17967C4.07126 7.22857 4.03479 7.28639 4.01082 7.34969C3.98686 7.41298 3.97588 7.48046 3.97856 7.54809C3.98123 7.61572 3.99749 7.68212 4.02638 7.74333C4.05527 7.80454 4.09619 7.8593 4.1467 7.90435L6.19704 9.86913C6.25191 9.92161 6.31794 9.96101 6.39017 9.98439C6.46241 10.0078 6.53899 10.0145 6.61421 10.0041C6.68942 9.99378 6.76132 9.96655 6.82453 9.92449C6.88775 9.88243 6.94064 9.82664 6.97927 9.76127L9.93785 4.75203Z" fill="#005A9C"/>
+</svg>
+
+                </span>
+                <span>Tutor Verificado</span>
+            </div>
+            
+            <div class="perfil-rating-grande">
+                <span class="icono-estrella-perfil">
+                    
+<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8413 20.55L6.61631 24.3C6.34131 24.475 6.05381 24.55 5.75381 24.525C5.45381 24.5 5.19131 24.4 4.96631 24.225C4.74131 24.05 4.56631 23.8315 4.44131 23.5695C4.31631 23.3075 4.29131 23.0135 4.36631 22.6875L6.01631 15.6L0.503814 10.8375C0.253814 10.6125 0.0978137 10.356 0.0358137 10.068C-0.0261863 9.78 -0.00768639 9.499 0.0913136 9.225C0.190314 8.951 0.340314 8.726 0.541314 8.55C0.742314 8.374 1.01731 8.2615 1.36631 8.2125L8.64131 7.575L11.4538 0.9C11.5788 0.6 11.7728 0.375 12.0358 0.225C12.2988 0.0749998 12.5673 0 12.8413 0C13.1153 0 13.3838 0.0749998 13.6468 0.225C13.9098 0.375 14.1038 0.6 14.2288 0.9L17.0413 7.575L24.3163 8.2125C24.6663 8.2625 24.9413 8.375 25.1413 8.55C25.3413 8.725 25.4913 8.95 25.5913 9.225C25.6913 9.5 25.7103 9.7815 25.6483 10.0695C25.5863 10.3575 25.4298 10.6135 25.1788 10.8375L19.6663 15.6L21.3163 22.6875C21.3913 23.0125 21.3663 23.3065 21.2413 23.5695C21.1163 23.8325 20.9413 24.051 20.7163 24.225C20.4913 24.399 20.2288 24.499 19.9288 24.525C19.6288 24.551 19.3413 24.476 19.0663 24.3L12.8413 20.55Z" fill="#FFC107"/>
+</svg>
+
+                </span>
+                <span>4.0 estrellas</span>
+            </div>
+            
+            <button class="boton-solicitar-tutoria" id="btn-solicitar-tutoria">Solicitar Tutoria</button>
+        </div>
+
+        <div class="perfil-columna-derecha">
+            
+            <div class="perfil-header-derecha">
+                <h2 class="perfil-nombre-grande">Victor Alberca Saavedra</h2>
+                <div class="perfil-iconos-header">
+                    <a href="#" class="icono-accion-perfil" aria-label="Modo Noche">
+                        
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26 45.5001C20.5472 45.5001 15.9344 43.6129 12.1615 39.8386C8.38861 36.0642 6.50144 31.4514 6.5 26.0001C6.5 21.0167 8.125 16.6921 11.375 13.0261C14.625 9.36007 18.7778 7.22085 23.8333 6.6084C24.3028 6.53618 24.7181 6.59974 25.0792 6.79907C25.4403 6.9984 25.7292 7.25985 25.9458 7.5834C26.1625 7.90696 26.2802 8.28612 26.299 8.7209C26.3178 9.15568 26.182 9.57096 25.8917 9.96674C25.2778 10.9056 24.817 11.8987 24.5093 12.9459C24.2017 13.9931 24.0486 15.0945 24.05 16.2501C24.05 19.5001 25.1875 22.2626 27.4625 24.5376C29.7375 26.8126 32.5 27.9501 35.75 27.9501C36.8694 27.9501 37.9802 27.7876 39.0823 27.4626C40.1844 27.1376 41.1681 26.6862 42.0333 26.1084C42.4306 25.8556 42.8372 25.7386 43.2532 25.7574C43.6692 25.7762 44.0389 25.8751 44.3625 26.0542C44.7236 26.2348 45.0038 26.5056 45.2032 26.8667C45.4025 27.2278 45.4653 27.6612 45.3917 28.1667C44.8861 33.1501 42.7649 37.2848 39.0282 40.5709C35.2914 43.857 30.9487 45.5001 26 45.5001Z" fill="#193C69"/>
+</svg>
+
+                    </a>
+                    <a href="#" class="icono-accion-perfil" id="btn-fav-perfil-tutor" aria-label="Añadir a favoritos">
+                        
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26 10.375C26 10.375 26 10.375 23.8889 7.25C21.4444 3.625 17.8333 1 13.5 1C6.58333 1 1 7.28125 1 15.0625C1 17.9688 1.77778 20.6562 3.11111 22.875C5.36111 26.6562 26 51 26 51M26 10.375C26 10.375 26 10.375 28.1111 7.25C30.5556 3.625 34.1667 1 38.5 1C45.4167 1 51 7.28125 51 15.0625C51 17.9688 50.2222 20.6562 48.8889 22.875C46.6389 26.6562 26 51 26 51" fill="white"/>
+<path d="M26 10.375C26 10.375 26 10.375 23.8889 7.25C21.4444 3.625 17.8333 1 13.5 1C6.58333 1 1 7.28125 1 15.0625C1 17.9687 1.77778 20.6563 3.11111 22.875C5.36111 26.6563 26 51 26 51C26 51 46.6389 26.6563 48.8889 22.875C50.2222 20.6563 51 17.9687 51 15.0625C51 7.28125 45.4167 1 38.5 1C34.1667 1 30.5556 3.625 28.1111 7.25C26 10.375 26 10.375 26 10.375Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                    </a>
+                </div>
+            </div>
+
+            <div class="perfil-detalles-tutor">
+                <p><strong>Universidad:</strong> PUCP</p>
+                <p><strong>Carrera:</strong> Ingenieria de Software</p>
+                <p><strong>Disponibilidad:</strong> Lunes, Martes, Miercoles, Jueves y Viernes</p>
+                <p><strong>Temas de dominio:</strong></p>
+            </div>
+
+            <div class="perfil-tags-container">
+                <span class="perfil-tag">Figma</span>
+                <span class="perfil-tag">Algoritmos</span>
+                <span class="perfil-tag">SQL</span>
+            </div>
+
+            <div class="perfil-descripcion">
+                <h3>Descripcion:</h3>
+                <p>
+                    Hola!! Mi nombre es Victor y estoy aqui tanto para enseñar como para 
+                    aprender, asi que si nesecitas ayuda no dudes en contactarme y si me 
+                    ayudarias con mis dudas t lo agradecería bastante :D
+                </p>
+            </div>
+
+            <div class="perfil-reseñas">
+                <h3>Reseñas</h3>
+                
+                <div class="tarjeta-reseña">
+                    <img src="../assets/images/ima-foto-victor.png" alt="Foto de Victor Alberca" class="reseña-imagen-perfil">
+                    <div class="reseña-contenido">
+                        <h4>Victor Alberca Saavedra</h4>
+                        <p>
+                            Hola!! Mi nombre es Victor y estoy aqui tanto para enseñar como para aprender, asi 
+                            que si nesecitas ayuda no dudes en contactarme y si me ayudarias con mis dudas t lo 
+                            agradecería bastante :D
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+      </div> 
+    </section>
+
+    
+
+    <section class="seccion-sesionespasadas-tutor panel-seccion" id="panel-sesiones">
+
+    <div class="dashboard-header">
+        <h1>Bienvenida de nuevo Alexandra!</h1>
+        <button class="boton-aprender-tema">Aprender un nuevo tema</button>
+    </div>
+
+    <div class="dashboard-grid-container">
+
+        <div class="columna-sesiones-programadas">
+            <h2>Sesiones programadas</h2>
+
+            <div class="grid-sesiones">
+                <div class="tarjeta-sesion">
+                    <div class="tarjeta-sesion-header">
+                        <h3>Calculo II</h3>
+                        <span class="tag-sesion pendiente">Pendiente</span>
+                    </div>
+                    <div class="tarjeta-sesion-body">
+                        <p><strong>Tutor:</strong> Alexandra Meza (Tu)</p>
+                        <p><strong>Estudiante:</strong> Adrian Guevara</p>
+                        <p><strong>Fecha:</strong> 02/11/2025</p>
+                        <p><strong>Hora:</strong> 4:00 pm</p>
+                    </div>
+                    <button class="boton-ver-detalles">Ver detalles</button>
+                </div>
+
+                <div class="tarjeta-sesion">
+                    <div class="tarjeta-sesion-header">
+                        <h3>Calculo II</h3>
+                        <span class="tag-sesion pendiente">Pendiente</span>
+                    </div>
+                    <div class="tarjeta-sesion-body">
+                        <p><strong>Tutor:</strong> Alexandra Meza</p>
+                        <p><strong>Profesor:</strong> Adrian Guevara</p>
+                        <p><strong>Fecha:</strong> 02/11/2025</p>
+                        <p><strong>Hora:</strong> 4:00 pm</p>
+                    </div>
+                    <button class="boton-ver-detalles">Ver detalles</button>
+                </div>
+
+                <div class="tarjeta-sesion">
+                    <div class="tarjeta-sesion-header">
+                        <h3>Algoritmos</h3>
+                        <span class="tag-sesion pendiente">Pendiente</span>
+                    </div>
+                    <div class="tarjeta-sesion-body">
+                        <p><strong>Tutor:</strong> Alexandra Meza (Tu)</p>
+                        <p><strong>Estudiante:</strong> Carmen Mendoza</p>
+                        <p><strong>Fecha:</strong> 10/11/2025</p>
+                        <p><strong>Hora:</strong> 3:00 pm</p>
+                    </div>
+                    <button class="boton-ver-detalles">Ver detalles</button>
+                </div>
+
+                <div class="tarjeta-sesion">
+                    <div class="tarjeta-sesion-header">
+                        <h3>Algoritmos</h3>
+                        <span class="tag-sesion confirmada">Confirmada</span>
+                    </div>
+                    <div class="tarjeta-sesion-body">
+                        <p><strong>Tutor:</strong> Alexandra Meza</p>
+                        <p><strong>Profesor:</strong> Adrian Guevara</p>
+                        <p><strong>Fecha:</strong> 10/11/2025</p>
+                        <p><strong>Hora:</strong> 3:00 pm</p>
+                    </div>
+                    <button class="boton-ver-detalles">Ver detalles</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="columna-historial-sesiones">
+            <h2>Historial de sesiones</h2>
+
+            <div class="tarjeta-sesion">
+                <div class="tarjeta-sesion-header">
+                    <h3>Calculo II</h3>
+                    <span class="tag-sesion realizado">Realizado</span>
+                </div>
+                <div class="tarjeta-sesion-body">
+                    <p><strong>Tutor:</strong> Alexandra Meza (Tu)</p>
+                    <p><strong>Estudiante:</strong> Adrian Guevara</p>
+                    <p><strong>Fecha:</strong> 02/11/2025</p>
+                    <p><strong>Hora:</strong> 4:00 pm</p>
+                </div>
+                <button class="boton-ver-detalles">Ver detalles</button>
+            </div>
+
+            <div class="tarjeta-sesion">
+                <div class="tarjeta-sesion-header">
+                    <h3>Algoritmos</h3>
+                    <span class="tag-sesion realizado">Realizado</span>
+                </div>
+                <div class="tarjeta-sesion-body">
+                    <p><strong>Tutor:</strong> Alexandra Meza (Tu)</p>
+                    <p><strong>Estudiante:</strong> Carmen Mendoza</p>
+                    <p><strong>Fecha:</strong> 10/11/2025</p>
+                    <p><strong>Hora:</strong> 3:00 pm</p>
+                </div>
+                <button class="boton-ver-detalles">Ver detalles</button>
+            </div>
+
+            <button class="boton-ver-todas">Ver todas</button>
+        </div>
+
+    </div>
+ </section>
+
+
+ <section class="seccion-ajustes-apariencia panel-seccion" id="panel-ajustes-apariencia">
+
+<div class="ajustes-layout">
+    
+    <div class="ajustes-sidebar">
+      <h3 class="ajustes-titulo-menu">Configuración</h3>
+      <ul class="ajustes-lista-menu">
+        <li><a href="#" class="ajustes-link activo">🎨 Apariencia</a></li>
+        <li><a href="#" class="ajustes-link" id="btn-ir-chat-desde-apariencia">💬 Personalizar Chat</a></li>
+        <li class="ajustes-separador"></li>
+        <li><a href="#" class="ajustes-link volver" id="btn-volver-perfil-1">⬅ Volver al Perfil</a></li>
+      </ul>
+    </div>
+
+    <div class="ajustes-contenido">
+      <h2>Temas de Color</h2>
+      <p>Personaliza el color principal de tu interfaz.</p>
+      
+      <div class="ajustes-opcion-tarjeta">
+        <div class="info-opcion">
+            <h3>Elige tu acento</h3>
+            <p>Este color se aplicará a botones y enlaces importantes.</p>
+        </div>
+        <div class="temas-colores-grid">
+            <button class="btn-color theme-default selected" data-color="default" title="Azul (Original)"></button>
+            <button class="btn-color theme-pink" data-color="pink" title="Pink"></button>
+            <button class="btn-color theme-lightblue" data-color="lightblue" title="Celeste"></button>
+            <button class="btn-color theme-orange" data-color="orange" title="Naranja"></button>
+        </div>
+      </div>
+
+      <div class="ajustes-opcion-tarjeta">
+        <div class="info-opcion">
+            <h3>Modo Oscuro</h3>
+            <p>Sincronizado con tu perfil.</p>
+        </div>
+        <div class="modo-tema-ajustes">
+            <label class="switch">
+              <input type="checkbox" id="theme-toggle-ajustes"> 
+              <span class="slider"></span>
+            </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    
+</section>
+
+
+
+<section class="seccion-ajustes-chat panel-seccion" id="panel-ajustes-chat">
+
+   <div class="ajustes-layout">
+    
+    <div class="ajustes-sidebar-chat">
+      <h3 class="ajustes-titulo-menu">Configuración</h3>
+      <ul class="ajustes-lista-menu">
+        <li><a href="#" class="ajustes-link" id="btn-ir-apariencia-desde-chat">🎨 Apariencia</a></li>
+        <li><a href="#" class="ajustes-link-chat activo">💬 Personalizar Chat</a></li>
+        <li class="ajustes-separador"></li>
+        <li><a href="#" class="ajustes-link volver" id="btn-volver-perfil-2">⬅ Volver al Perfil</a></li>
+      </ul>
+    </div>
+
+    <div class="ajustes-contenido">
+      <h2>Respuestas Rápidas</h2>
+      <p>Crea atajos de texto para responder más rápido en tus sesiones.</p>
+
+    <div class="quick-reply-input-area">
+        <input type="text" id="input-quick-reply" placeholder="Escribe una nueva respuesta..." maxlength="50">
+        
+        <button id="btn-add-reply" class="btn-add-reply" type="button">Agregar</button>
+    </div>
+
+    <div class="quick-replies-list-container">
+        <h3>Mis respuestas guardadas:</h3>
+        <ul id="lista-respuestas-rapidas" class="lista-respuestas-rapidas">
+            </ul>
+        <p id="no-replies-msg" style="display:none; color:#888;">No tienes respuestas guardadas aún.</p>
+    </div>
+
+    </div>
+  </div>
+    
+</section>
+
+
+
+<section class="perfil-usuario panel-seccion" id="panel-perfil">
+<div class="modo-tema">
+      <label class="switch">
+                <input type="checkbox" id="theme-toggle"> 
+        <span class="slider"></span>
+      </label>
+      <span>Dark/Light</span>
+    </div>
+
+    <h2 class="titulo">Perfil de Usuario</h2>
+
+    <div class="contenedor-perfil">
+      <div class="foto-perfil">
+        <div class="foto-perfil-wrapper" style="position: relative; display: inline-block;">
+            <img src="../assets/images/Estudiante-perfil-test.jpg" alt="Foto de perfil" style="display: block;">
+            
+            <span class="badge-verificado-propio" title="Usuario Verificado">
+                <svg width="24" height="24" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4449 0.59161C10.3059 0.369463 10.101 0.196189 9.85894 0.0959077C9.61684 -0.00437349 9.3495 -0.0266726 9.09412 0.0321152L7.28168 0.44846C7.09594 0.491154 6.90293 0.491154 6.71718 0.44846L4.90474 0.0321152C4.64937 -0.0266726 4.38203 -0.00437349 4.13992 0.0959077C3.89782 0.196189 3.693 0.369463 3.55398 0.59161L2.56611 2.16827C2.4653 2.32957 2.32922 2.46566 2.16793 2.56748L0.591369 3.55542C0.36962 3.69432 0.196611 3.89882 0.096358 4.14053C-0.00389508 4.38224 -0.0264197 4.64916 0.0319106 4.90425L0.448228 6.71883C0.490766 6.90426 0.490766 7.09692 0.448228 7.28235L0.0319106 9.09592C-0.0266464 9.35116 -0.00423514 9.61831 0.0960288 9.86022C0.196293 10.1021 0.369428 10.3068 0.591369 10.4458L2.16793 11.4337C2.32922 11.5345 2.4653 11.6706 2.56711 11.8319L3.55499 13.4086C3.83925 13.8632 4.38157 14.088 4.90474 13.9681L6.71718 13.5517C6.90293 13.509 7.09594 13.509 7.28168 13.5517L9.09513 13.9681C9.35036 14.0266 9.61748 14.0042 9.85938 13.9039C10.1013 13.8037 10.3059 13.6305 10.4449 13.4086L11.4328 11.8319C11.5336 11.6706 11.6696 11.5345 11.8309 11.4337L13.4085 10.4458C13.6305 10.3066 13.8035 10.1017 13.9036 9.8596C14.0037 9.61749 14.0258 9.3502 13.967 9.09492L13.5516 7.28235C13.509 7.0966 13.509 6.90358 13.5516 6.71782L13.968 4.90425C14.0266 4.64912 14.0044 4.38205 13.9043 4.14015C13.8042 3.89824 13.6313 3.69352 13.4095 3.55441L11.8319 2.56647C11.6709 2.46548 11.5348 2.32935 11.4338 2.16827L10.4449 0.59161ZM9.93785 4.75203C10.0002 4.63737 10.0156 4.503 9.98094 4.37719C9.94624 4.25138 9.86409 4.14393 9.75179 4.07745C9.63948 4.01098 9.50576 3.99066 9.37878 4.02077C9.2518 4.05089 9.14145 4.12908 9.07094 4.23891L6.43493 8.70075L4.84325 7.17651C4.79603 7.12802 4.73953 7.08954 4.67712 7.06336C4.61471 7.03718 4.54766 7.02384 4.47998 7.02414C4.4123 7.02443 4.34538 7.03835 4.28319 7.06508C4.22101 7.0918 4.16485 7.13077 4.11805 7.17967C4.07126 7.22857 4.03479 7.28639 4.01082 7.34969C3.98686 7.41298 3.97588 7.48046 3.97856 7.54809C3.98123 7.61572 3.99749 7.68212 4.02638 7.74333C4.05527 7.80454 4.09619 7.8593 4.1467 7.90435L6.19704 9.86913C6.25191 9.92161 6.31794 9.96101 6.39017 9.98439C6.46241 10.0078 6.53899 10.0145 6.61421 10.0041C6.68942 9.99378 6.76132 9.96655 6.82453 9.92449C6.88775 9.88243 6.94064 9.82664 6.97927 9.76127L9.93785 4.75203Z" fill="#005A9C"/>
+                </svg>
+            </span>
+
+            <span id="indicador-estado-usuario" class="indicador-estado-perfil" title="Estado: Disponible"></span>
+        </div>
+
+      <div class="contenido-doble">
+        <!-- Columna Izquierda -->
+        <div class="columna izquierda">
+          <div class="info-personal">
+            <p>
+                <strong>Nombre:</strong> 
+                <span id="perfil-nombre">Alexandra Meza (Tu)</span> 
+                <button class="btn-edit-field" data-target="perfil-nombre" title="Editar">✏️</button>
+            </p>
+            <p>
+                <strong>Universidad:</strong> 
+                <span id="perfil-universidad">UPC</span> 
+                <button class="btn-edit-field" data-target="perfil-universidad" title="Editar">✏️</button>
+            </p>
+            <p>
+                <strong>Carrera:</strong> 
+                <span id="perfil-carrera">Ingeniería de Software</span> 
+                <button class="btn-edit-field" data-target="perfil-carrera" title="Editar">✏️</button>
+            </p>
+            <p>
+                <strong>Correo:</strong> 
+                <span id="perfil-correo">alexandra.meza@example.com</span> 
+                <button class="btn-edit-field" data-target="perfil-correo" title="Editar">✏️</button>
+            </p>
+
+            <p>
+                <strong>Correo:</strong> 
+                <span id="perfil-correo">alexandra.meza@example.com</span> 
+                <button class="btn-edit-field" data-target="perfil-correo" title="Editar">✏️</button>
+            </p>
+
+                <div class="perfil-stats">
+                    <p>
+                        <strong>Créditos Disponibles:</strong> 
+                        <span id="perfil-creditos-valor" style="color: #28a745; font-weight: bold; font-size: 18px;">0</span>
+                        <span style="font-size: 12px; color: #888; cursor: help;" title="Ganas 1 crédito cada vez que calificas una sesión con 5 estrellas.">ℹ️</span>
+                    </p>
+                    <p>
+                        <strong>Mi Reputación:</strong>
+                        <span id="perfil-estrellas-visual" style="color: #ffc107; font-size: 20px; letter-spacing: 2px;">☆☆☆☆☆</span>
+                        <span id="perfil-rating-texto" style="font-size: 13px; color: #666; font-weight: normal;">(Nuevo)</span>
+                    </p>
+                </div>
+          </div>
+
+          <div class="descripcion">
+                <div class="descripcion-header">
+                    <strong>Descripción:</strong>
+                    <button class="btn-edit-field" data-target="perfil-descripcion" title="Editar">✏️</button>
+                </div>
+                <p id="perfil-descripcion">
+                    ¡Hola! Soy Alexandra, una estudiante apasionada por la tecnología y el diseño UX/UI.
+                </p>
+          </div>
+        </div>
+
+        <!-- Columna Derecha -->
+        <div class="columna derecha">
+          <div class="seccion-botones">
+            <div class="grupo-botones">
+              <label>Estado:</label>
+              <div class="botones" id="btn-group-estado" data-toggle="single">
+                <button class="boton-toggle activo">Activo</button>
+                <button class="boton-toggle">Ocupado</button>
+              </div>
+            </div>
+
+            <div class="grupo-botones">
+              <label>Días Disponibles:</label>
+              <div class="botones" id="btn-group-dias" data-toggle="multiple">
+                <button class="boton-toggle activo">Lunes</button>
+                <button class="boton-toggle">Martes</button>
+                <button class="boton-toggle activo">Miércoles</button>
+                <button class="boton-toggle">Jueves</button>
+                <button class="boton-toggle activo">Viernes</button>
+                <button class="boton-toggle">Sábado</button>
+              </div>
+            </div>
+
+            <div class="grupo-botones">
+              <label>Tipo de Usuario:</label>
+              <div class="botones" id="btn-group-tipo" data-toggle="single">
+                <button class="boton-toggle">Tutor</button>
+                <button class="boton-toggle">Estudiante</button>
+                <button class="boton-toggle activo">Ambos</button>
+              </div>
+            </div>
+          </div>
+
+            <div class="temas-dominio">
+            <strong>Temas de Dominio:</strong>
+            <ul class="btnes-temas-hab" id="lista-dominio-perfil">
+                <li class="agregar" id="btn-add-dominio" style="cursor: pointer;" title="Añadir Tema">➕</li>
+            </ul>
+            </div>
+
+          <div class="habilidades">
+            <strong>Habilidades:</strong>
+            <ul id="lista-habilidades-perfil" class="btnes-temas-hab">
+              <li>Paciente </li>
+              <li>Amable </li>
+              <li>Activo </li>
+              <li class="agregar" id="btn-add-habilidades" style="cursor: pointer;" title="Añadir Habilidad">➕</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="ajustes">
+        <button class="btn-ajustes">⚙ Ajustes</button>
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="seccion-perfil-habilidades panel-seccion" id="panel-add-habilidades">
+
+    <aside class="habilidades-perfil-sidebar">
+        <div class="habilidades-imagen-wrapper">
+            <img src="../assets/images/ima-chica1.png" alt="Foto de perfil" class="habilidades-imagen-perfil">
+            <span class="habilidades-verificado-badge">
+                
+<svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M41.0149 2.32298C40.469 1.45071 39.6647 0.770343 38.714 0.376585C37.7633 -0.0171726 36.7135 -0.104731 35.7107 0.126101L28.5936 1.76089C27.8643 1.92853 27.1064 1.92853 26.377 1.76089L19.2599 0.126101C18.2571 -0.104731 17.2073 -0.0171726 16.2566 0.376585C15.3059 0.770343 14.5016 1.45071 13.9557 2.32298L10.0766 8.51381C9.68072 9.14714 9.14635 9.68152 8.51301 10.0813L2.32218 13.9605C1.45142 14.5059 0.772051 15.3089 0.378378 16.2579C-0.0152952 17.207 -0.103745 18.2551 0.125306 19.2567L1.7601 26.3817C1.92713 27.1098 1.92713 27.8663 1.7601 28.5944L0.125306 35.7155C-0.104635 36.7177 -0.0166305 37.7666 0.377085 38.7165C0.7708 39.6664 1.45067 40.47 2.32218 41.0157L8.51301 44.8949C9.14635 45.2907 9.68072 45.8251 10.0805 46.4584L13.9597 52.6492C15.0759 54.4344 17.2055 55.3171 19.2599 54.8461L26.377 53.2113C27.1064 53.0437 27.8643 53.0437 28.5936 53.2113L35.7147 54.8461C36.7169 55.076 37.7658 54.988 38.7157 54.5943C39.6656 54.2006 40.4692 53.5207 41.0149 52.6492L44.8941 46.4584C45.2899 45.8251 45.8243 45.2907 46.4576 44.8949L52.6524 41.0157C53.5239 40.4692 54.2035 39.6647 54.5965 38.7141C54.9896 37.7634 55.0765 36.7139 54.8453 35.7115L53.2145 28.5944C53.0468 27.8651 53.0468 27.1071 53.2145 26.3778L54.8493 19.2567C55.0796 18.2549 54.9922 17.2063 54.5992 16.2564C54.2062 15.3066 53.5271 14.5027 52.6563 13.9565L46.4616 10.0774C45.8291 9.68079 45.2946 9.14626 44.898 8.51381L41.0149 2.32298ZM39.0238 18.659C39.2687 18.2088 39.3293 17.6812 39.1931 17.1872C39.0568 16.6932 38.7342 16.2713 38.2932 16.0103C37.8522 15.7493 37.3271 15.6695 36.8285 15.7877C36.3299 15.906 35.8965 16.213 35.6197 16.6442L25.2686 34.1638L19.0184 28.1788C18.833 27.9884 18.6111 27.8373 18.3661 27.7345C18.121 27.6317 17.8577 27.5794 17.5919 27.5805C17.3262 27.5817 17.0634 27.6364 16.8192 27.7413C16.575 27.8462 16.3545 27.9992 16.1707 28.1912C15.987 28.3832 15.8438 28.6103 15.7497 28.8588C15.6556 29.1073 15.6125 29.3723 15.623 29.6379C15.6335 29.9034 15.6973 30.1641 15.8108 30.4045C15.9242 30.6448 16.0849 30.8598 16.2832 31.0367L24.3345 38.7515C24.55 38.9576 24.8092 39.1123 25.0929 39.2041C25.3765 39.2959 25.6773 39.3224 25.9726 39.2817C26.268 39.2409 26.5503 39.134 26.7985 38.9689C27.0467 38.8037 27.2545 38.5846 27.4061 38.328L39.0238 18.659Z" fill="#005A9C"/>
+</svg>
+
+
+            </span>
+        </div>
+        <button class="boton-cambiar-foto">Cambiar Foto</button>
+        <h3 class="habilidades-nombre-perfil">Alexandra Yamile Meza Soza</h3>
+    </aside>
+
+<main class="habilidades-contenido-principal">
+        <h1 class="habilidades-titulo-principal">Añadir habilidades</h1>
+
+        <div class="habilidades-actuales-contenedor">
+            <h2>Habilidades actuales:</h2>
+            <div class="tags-actuales-wrapper" id="contenedor-habilidades-edicion">
+            </div>
+        </div>
+        <div class="habilidades-agregar-contenedor">
+            <h2>Habilidades a agregar:</h2>
+            <select name="habilidades" id="habilidades-select" multiple size="4" class="habilidades-select-box">
+                <option value="comunicacion">Comunicación</option>
+                <option value="liderazgo">Liderazgo</option>
+                <option value="puntualidad">Puntualidad</option>
+                <option value="empatia">Empatía</option>
+            </select>
+            <br>
+            <button id="btn-guardar-habilidad" style="background-color: #2196F3; border: none; cursor: pointer;" class="btn-guardar-habilidad">Agregar Habilidad</button>
+        </div>
+    </main>
+    
+</section>
+
+
+
+<section class="seccion-perfil-dominio panel-seccion" id="panel-add-dominio">
+
+    <aside class="dominio-perfil-sidebar">
+        <div class="dominio-imagen-wrapper">
+            <img src="../assets/images/ima-chica1.png" alt="Foto de perfil" class="dominio-imagen-perfil">
+            <span class="dominio-verificado-badge">
+                
+<svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M41.0149 2.32298C40.469 1.45071 39.6647 0.770343 38.714 0.376585C37.7633 -0.0171726 36.7135 -0.104731 35.7107 0.126101L28.5936 1.76089C27.8643 1.92853 27.1064 1.92853 26.377 1.76089L19.2599 0.126101C18.2571 -0.104731 17.2073 -0.0171726 16.2566 0.376585C15.3059 0.770343 14.5016 1.45071 13.9557 2.32298L10.0766 8.51381C9.68072 9.14714 9.14635 9.68152 8.51301 10.0813L2.32218 13.9605C1.45142 14.5059 0.772051 15.3089 0.378378 16.2579C-0.0152952 17.207 -0.103745 18.2551 0.125306 19.2567L1.7601 26.3817C1.92713 27.1098 1.92713 27.8663 1.7601 28.5944L0.125306 35.7155C-0.104635 36.7177 -0.0166305 37.7666 0.377085 38.7165C0.7708 39.6664 1.45067 40.47 2.32218 41.0157L8.51301 44.8949C9.14635 45.2907 9.68072 45.8251 10.0805 46.4584L13.9597 52.6492C15.0759 54.4344 17.2055 55.3171 19.2599 54.8461L26.377 53.2113C27.1064 53.0437 27.8643 53.0437 28.5936 53.2113L35.7147 54.8461C36.7169 55.076 37.7658 54.988 38.7157 54.5943C39.6656 54.2006 40.4692 53.5207 41.0149 52.6492L44.8941 46.4584C45.2899 45.8251 45.8243 45.2907 46.4576 44.8949L52.6524 41.0157C53.5239 40.4692 54.2035 39.6647 54.5965 38.7141C54.9896 37.7634 55.0765 36.7139 54.8453 35.7115L53.2145 28.5944C53.0468 27.8651 53.0468 27.1071 53.2145 26.3778L54.8493 19.2567C55.0796 18.2549 54.9922 17.2063 54.5992 16.2564C54.2062 15.3066 53.5271 14.5027 52.6563 13.9565L46.4616 10.0774C45.8291 9.68079 45.2946 9.14626 44.898 8.51381L41.0149 2.32298ZM39.0238 18.659C39.2687 18.2088 39.3293 17.6812 39.1931 17.1872C39.0568 16.6932 38.7342 16.2713 38.2932 16.0103C37.8522 15.7493 37.3271 15.6695 36.8285 15.7877C36.3299 15.906 35.8965 16.213 35.6197 16.6442L25.2686 34.1638L19.0184 28.1788C18.833 27.9884 18.6111 27.8373 18.3661 27.7345C18.121 27.6317 17.8577 27.5794 17.5919 27.5805C17.3262 27.5817 17.0634 27.6364 16.8192 27.7413C16.575 27.8462 16.3545 27.9992 16.1707 28.1912C15.987 28.3832 15.8438 28.6103 15.7497 28.8588C15.6556 29.1073 15.6125 29.3723 15.623 29.6379C15.6335 29.9034 15.6973 30.1641 15.8108 30.4045C15.9242 30.6448 16.0849 30.8598 16.2832 31.0367L24.3345 38.7515C24.55 38.9576 24.8092 39.1123 25.0929 39.2041C25.3765 39.2959 25.6773 39.3224 25.9726 39.2817C26.268 39.2409 26.5503 39.134 26.7985 38.9689C27.0467 38.8037 27.2545 38.5846 27.4061 38.328L39.0238 18.659Z" fill="#005A9C"/>
+</svg>
+            </span>
+        </div>
+        <button class="boton-cambiar-foto-dominio">Cambiar Foto</button>
+        <h3 class="dominio-nombre-perfil">Alexandra Yamile Meza Soza</h3>
+    </aside>
+
+    <main class="dominio-contenido-principal">
+        <h1 class="dominio-titulo-principal">Añadir tema de dominio</h1>
+
+        <div class="dominio-actuales-contenedor">
+            <h2>Temas de dominio</h2>
+            <div class="tags-dominio-wrapper" id="contenedor-dominio-edicion">
+            </div>
+        </div>
+
+        <div class="dominio-agregar-contenedor">
+            <h2>Tema a agregar:</h2>
+            <select name="temas" id="temas-select" multiple size="4" class="dominio-select-box">
+                <option value="poo">POO</option>
+                <option value="ihc">IHC</option>
+                <option value="matematica">Matemática básica</option>
+            </select>
+            <br>
+            <button id="btn-guardar-tema" style="background-color: #2196F3; border: none; cursor: pointer;" class="btn-guardar-dominio">Agregar Tema</button>
+        </div>
+    </main>
+    
+</section>
+
+<section class="dashboard-principal-estudiante panel-seccion activa" id="panel-dashboard-estudiante">
+
+  <div class="dash-est-header">
+    <h1 class="dash-est-titulo">¡Bienvenida de nuevo Alexandra!</h1>
+    <a href="#" id="nav-aprender" class="dash-est-boton-aprender">Aprender un nuevo tema</a>
+  </div>
+
+  <div class="dash-est-grid">
+    
+    <div class="dash-est-columna-izquierda">
+      <h2 class="dash-est-subtitulo">Sesiones programadas</h2>
+      
+      <div class="dash-est-tarjeta-sesion">
+        <div class="dash-est-tarjeta-header">
+          <h3>Calculo II</h3>
+          <span class="tag-sesion confirmada">Confirmada</span>
+        </div>
+        <div class="dash-est-tarjeta-body">
+          <p><strong>Tutor:</strong> Alexandra Meza (Tu)</p>
+          <p><strong>Estudiante:</strong> Adrian Guevara</p>
+          <p><strong>Fecha:</strong> 02/11/2025</p>
+          <p><strong>Hora:</strong> 4:00 pm</p>
+        </div>
+        <button class="dash-est-boton-detalle">Ver detalles</button>
+      </div>
+      
+      <div class="dash-est-tarjeta-sesion">
+        <div class="dash-est-tarjeta-header">
+          <h3>Algoritmos</h3>
+           <span class="tag-sesion pendiente">Pendiente</span>
+        </div>
+        <div class="dash-est-tarjeta-body">
+          <p><strong>Tutor:</strong> Alexandra Meza (Tu)</p>
+          <p><strong>Estudiante:</strong> Carmen Mendoza</p>
+          <p><strong>Fecha:</strong> 10/11/2025</p>
+          <p><strong>Hora:</strong> 3:00 pm</p>
+        </div>
+        <button class="dash-est-boton-detalle">Ver detalles</button>
+      </div>
+
+      <div class="calendario-dropdown-wrapper">
+        <button class="dash-est-boton-calendario" id="btn-abrir-calendario">
+            Abrir Calendario
+        </button>
+
+        <div class="calendario-semanal-flotante" id="calendario-flotante">
+            <div class="calendario-header">
+                <h3>Mi Disponibilidad Semanal</h3>
+                <button class="btn-cerrar-calendario" id="btn-cerrar-calendario">✕</button>
+            </div>
+            
+            <div class="calendario-grid">
+                <div class="dia-item ocupado">
+                    <div class="dia-nombre">Lun</div>
+                    <div class="dia-estado">Ocupado</div>
+                    <div class="dia-horas">9:00 - 18:00</div>
+                </div>
+
+                <div class="dia-item libre">
+                    <div class="dia-nombre">Mar</div>
+                    <div class="dia-estado">Libre</div>
+                    <div class="dia-horas">
+                        <select class="select-hora-mini">
+                            <option>Elegir hora...</option>
+                            <option>10:00 am</option>
+                            <option>04:00 pm</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dia-item libre">
+                    <div class="dia-nombre">Mié</div>
+                    <div class="dia-estado">Libre</div>
+                    <div class="dia-horas">
+                        <select class="select-hora-mini">
+                            <option>Elegir hora...</option>
+                            <option>10:00 am</option>
+                            <option>04:00 pm</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dia-item ocupado">
+                    <div class="dia-nombre">Jue</div>
+                    <div class="dia-estado">Ocupado</div>
+                    <div class="dia-horas">Todo el día</div>
+                </div>
+
+                <div class="dia-item libre">
+                    <div class="dia-nombre">Vie</div>
+                    <div class="dia-estado">Libre</div>
+                    <div class="dia-horas">
+                        <select class="select-hora-mini">
+                            <option>Elegir hora...</option>
+                            <option>03:00 pm</option>
+                            <option>05:00 pm</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="dia-item fin-semana">
+                    <div class="dia-nombre">Sáb/Dom</div>
+                    <div class="dia-estado">Descanso</div>
+                </div>
+            </div>
+            
+            <div class="calendario-footer">
+                <button class="btn-guardar-calendario">Guardar Cambios</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-est-columna-derecha">
+      
+      <div class="dash-est-sub-seccion">
+        <div class="dash-est-sub-header">
+          <h2 class="dash-est-subtitulo">Solicitudes</h2>
+          <a href="#" class="dash-est-ver-todas" id="btn-ver-todas-solicitudes">Ver todas</a>
+        </div>
+        <span class="dash-est-subtitulo-info">¡Tienes 3 solicitudes pendientes!</span>
+        
+        <div class="dash-est-tarjeta-solicitud">
+          <img src="../assets/images/ima-foto-adrian-guevara.png" alt="Foto Jose Alvarado" class="dash-est-solicitud-img">
+          <div class="dash-est-solicitud-info">
+            <p><strong>Jose Alvarado Jimenez</strong></p>
+            <p>Hola! Podemos programar una sesion para el martes? :)</p>
+          </div>
+          <div class="dash-est-solicitud-acciones">
+            <button class="dash-est-accion-btn aceptar" aria-label="Aceptar">&#x2713;</button>
+            <button class="dash-est-accion-btn rechazar" aria-label="Rechazar">&#x2715;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-est-sub-seccion">
+        <div class="dash-est-sub-header">
+          <h2 class="dash-est-subtitulo">Mis tutores en linea</h2>
+        </div>
+
+        <div class="dash-est-tarjeta-tutor">
+          <div class="dash-est-tutor-img-wrapper">
+            <img src="../assets/images/ima-chico1.png" alt="Foto Miguel Santos" class="dash-est-tutor-img">
+            <span class="dash-est-online-indicator"></span>
+          </div>
+          <div class="dash-est-tutor-info">
+            <p><strong>Miguel Santos Medina</strong> <span class="dash-est-verificado-check">✓</span></p>
+            <p>Ing. Software - PUCP</p>
+            <button class="dash-est-boton-programar">Programar sesion</button>
+          </div>
+          <span class="dash-est-tutor-fav activo">❤</span>
+        </div>
+
+        <div class="dash-est-tarjeta-tutor">
+          <div class="dash-est-tutor-img-wrapper">
+            <img src="../assets/images/ima-foto-adrian-guevara.png" alt="Foto Adrian Guevara" class="dash-est-tutor-img">
+            <span class="dash-est-online-indicator"></span>
+          </div>
+          <div class="dash-est-tutor-info">
+            <p><strong>Adrian Guevara Romero</strong> <span class="dash-est-verificado-check">✓</span></p>
+            <p>Ing. Sistemas - Ulima</p>
+            <button class="dash-est-boton-programar">Programar sesion</button>
+          </div>
+          <span class="dash-est-tutor-fav activo">❤</span>
+        </div>
+        
+        <button class="dash-est-boton-ver-tutores" id="btn-ver-todos-tutores">Ver todos mis tutores</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="mini-perfil-overlay" class="modal-overlay" style="z-index: 2000;">
+    <div class="mini-perfil-card" style="background: white; padding: 25px; border-radius: 15px; width: 320px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: popIn 0.3s ease;">
+        
+        <button id="btn-cerrar-mini-perfil" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 18px; cursor: pointer; color: #999;">✕</button>
+        
+        <h4 style="margin: 0 0 15px 0; color: #005a9c; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Perfil del Aprendiz</h4>
+        
+        <img id="mini-img" src="" alt="Foto" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f0f0f0; margin-bottom: 10px;">
+        
+        <h3 id="mini-nombre" style="margin: 5px 0; font-size: 18px; color: #333;">Nombre Estudiante</h3>
+        
+        <div style="margin-top: 10px; text-align: left; background-color: #f8f9fa; padding: 12px; border-radius: 10px;">
+            <p style="margin: 5px 0; font-size: 13px; color: #555;">
+                🎓 <strong>Universidad:</strong> <span id="mini-uni" style="color: #000;">Uni</span>
+            </p>
+            <p style="margin: 5px 0; font-size: 13px; color: #555;">
+                📚 <strong>Curso:</strong> <span id="mini-curso" style="background-color: #ffc107; color: #333; padding: 2px 6px; border-radius: 8px; font-weight: 700; font-size: 11px;">Curso</span>
+            </p>
+        </div>
+
+        <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; text-align: left;">
+            <label style="font-size: 12px; font-weight: 600; color: #666; margin-bottom: 5px; display: block;">💬 Enviar mensaje rápido:</label>
+            <div style="display: flex; gap: 5px;">
+                <input type="text" id="input-mensaje-rapido-mini" placeholder="Ej: Hola, ¿qué horario prefieres?" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; outline: none;">
+                <button id="btn-enviar-rapido-mini" style="background-color: #005a9c; color: white; border: none; border-radius: 6px; width: 36px; cursor: pointer; transition: background 0.2s;">
+                    ➤
+                </button>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+            <button class="dash-est-accion-btn aceptar" style="width: 100%; border-radius: 8px;" onclick="alert('Solicitud Aceptada'); document.getElementById('mini-perfil-overlay').classList.remove('activo');">Aceptar</button>
+            <button class="dash-est-accion-btn rechazar" style="width: 100%; border-radius: 8px;" onclick="alert('Solicitud Rechazada'); document.getElementById('mini-perfil-overlay').classList.remove('activo');">Rechazar</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-solicitud-tutoria" class="modal-overlay">
+    <div class="modal-contenido" style="text-align: left; max-width: 500px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #005a9c; font-size: 20px;">Solicitar Tutoría</h3>
+            <span id="btn-cerrar-solicitud" style="cursor: pointer; font-size: 20px; color: #aaa;">✕</span>
+        </div>
+        
+        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
+            Envía un mensaje a <strong id="nombre-tutor-solicitud">el tutor</strong> para coordinar.
+        </p>
+
+        <form id="form-solicitud-tutoria">
+            <label style="font-weight: 600; font-size: 14px; display: block; margin-bottom: 5px;">Tu mensaje:</label>
+            <textarea id="mensaje-solicitud" 
+                      style="width: 100%; height: 100px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; resize: none; box-sizing: border-box; font-family: inherit;" 
+                      placeholder="Hola, me gustaría agendar una sesión para repasar..."></textarea>
+            
+            <p id="error-mensaje-solicitud" style="color: #dc3545; font-size: 13px; display: none; margin-top: 5px;">
+                ⚠ Por favor, escribe un mensaje para el tutor.
+            </p>
+
+            <div class="modal-botones" style="margin-top: 20px; justify-content: flex-end;">
+                <button type="button" id="btn-cancelar-solicitud" class="btn-modal secundario" style="margin-right: 10px;">Cancelar</button>
+                <button type="submit" class="btn-modal" style="background-color: #005a9c; color: white;">Enviar Solicitud</button>
+            </div>
+        </form>
+    </div>
+</div>
+    <script src="../assets/scripts/estudiante.js"></script>
+        <footer>
+      <div class="seccion-footer">
+        <p>2025 SkillSwap. Todos los derechos reservados. <a href="../archivos/TerminosCondiciones.pdf" class="terminos-condiciones">Terminos y Condiciones</a> </p>
+      </div>
+    </footer>
+
+
+            <script>
+// 1. MENU HAMBURGUESA PRINCIPAL
+    const btnMenu = document.getElementById('btn-menu');
+    const menu = document.querySelector('.barra-navegacion .menu-horizontal');
+    
+    if(btnMenu) {
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('activo');
+        });
+    }
+
+    // 2. SUBMENU ALIANZAS (SOLO MÓVIL)
+    const btnAlianzas = document.getElementById("btn-alianzas");
+    const submenuAlianzas = document.getElementById("submenu-alianzas");
+
+    if (btnAlianzas && submenuAlianzas) {
+        btnAlianzas.addEventListener("click", (event) => {
+            // Solo actuar si estamos en modo celular
+            if (window.innerWidth <= 768) {
+                event.preventDefault(); // Evita que recargue la página al tocar "Alianzas"
+                submenuAlianzas.classList.toggle("activo"); // Abre o cierra
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
