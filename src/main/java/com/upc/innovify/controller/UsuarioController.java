@@ -66,4 +66,11 @@ public class UsuarioController {
     public List<Usuario> buscarTutoresPorHabilidad(@RequestParam String habilidad) {
         return usuarioService.buscarTutoresPorHabilidad(habilidad);
     }
+    @GetMapping("/tutores/{id}")
+    public ResponseEntity<Usuario> getPerfilTutor(@PathVariable Integer id) {
+        return usuarioService.getById(id)
+                .filter(u -> "tutor".equals(u.getRol()))
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
