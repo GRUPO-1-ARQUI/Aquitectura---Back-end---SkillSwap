@@ -54,6 +54,17 @@ public class SolicitudController {
 
     @PutMapping("/{id}/estado")
     public Solicitud updateEstado(@PathVariable Integer id, @RequestParam String estado) {
-        return solicitudService.updateEstado(id, estado);
+        Solicitud solicitud = solicitudService.updateEstado(id, estado);
+
+        if ("aceptado".equals(estado)) {
+            Notificacion notificacion = new Notificacion();
+            notificacion.setIdUsuario(solicitud.getIdAprendiz());
+            notificacion.setTipo("aceptacion");
+            notificacion.setContenido("Tu solicitud de asesoría ha sido aceptada");
+            notificacion.setLeido(false);
+            notificacionService.create(notificacion);
+        }
+
+        return solicitud;
     }
 }
