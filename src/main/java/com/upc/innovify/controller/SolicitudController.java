@@ -6,12 +6,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.upc.innovify.model.Notificacion;
+import com.upc.innovify.service.NotificacionService;
 
 @RestController
 @RequestMapping("/api/solicitudes")
 @RequiredArgsConstructor
 public class SolicitudController {
     private final SolicitudService solicitudService;
+    private final NotificacionService notificacionService;
 
     @GetMapping
     public List<Solicitud> getAll() {
@@ -37,7 +40,16 @@ public class SolicitudController {
 
     @PostMapping
     public Solicitud create(@RequestBody Solicitud solicitud) {
-        return solicitudService.create(solicitud);
+        Solicitud nueva = solicitudService.create(solicitud);
+
+        Notificacion notificacion = new Notificacion();
+        notificacion.setIdUsuario(solicitud.getIdTutor());
+        notificacion.setTipo("solicitud");
+        notificacion.setContenido("Tienes una nueva solicitud de asesoría");
+        notificacion.setLeido(false);
+        notificacionService.create(notificacion);
+
+        return nueva;
     }
 
     @PutMapping("/{id}/estado")
