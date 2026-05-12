@@ -33,24 +33,18 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public Usuario update(@PathVariable Integer id,
-                          @RequestBody Usuario usuario) {
+    public Usuario update(@PathVariable Integer id, @RequestBody Usuario usuario) {
         return usuarioService.update(id, usuario);
     }
 
     @PutMapping("/{id}/biografia")
-    public Usuario actualizarBiografia(
-            @PathVariable Integer id,
-            @RequestBody String biografia) {
+    public Usuario actualizarBiografia(@PathVariable Integer id, @RequestBody String biografia) {
         return usuarioService.actualizarBiografia(id, biografia);
     }
-// se agrego para las historias de usuario que tengan que ver con coordinador, estudiante o tutor
+
     @PostMapping("/login")
     public Usuario login(@RequestBody Usuario usuario) {
-        return usuarioService.login(
-                usuario.getCorreoInstitucional(),
-                usuario.getPassword()
-        );
+        return usuarioService.login(usuario.getCorreoInstitucional(), usuario.getPassword());
     }
 
     @DeleteMapping("/{id}")
@@ -59,14 +53,17 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}/creditos")
-    public Usuario actualizarCreditos(
-            @PathVariable Integer id,
-            @RequestParam Integer puntos) {
-
+    public Usuario actualizarCreditos(@PathVariable Integer id, @RequestParam Integer puntos) {
         return usuarioService.actualizarCreditos(id, puntos);
     }
+
     @PutMapping("/{id}/tutor")
     public Usuario registrarComoTutor(@PathVariable Integer id) {
         return usuarioService.registrarComoTutor(id);
+    }
+
+    @GetMapping("/tutores/buscar")
+    public List<Usuario> buscarTutoresPorHabilidad(@RequestParam String habilidad) {
+        return usuarioService.buscarTutoresPorHabilidad(habilidad);
     }
 }
