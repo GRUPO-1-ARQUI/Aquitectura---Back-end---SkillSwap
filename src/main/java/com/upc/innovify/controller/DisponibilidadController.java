@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Disponibilidad;
 import com.upc.innovify.service.DisponibilidadService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -26,13 +27,13 @@ public class DisponibilidadController {
 
     // POST /api/disponibilidad — registrar horario de disponibilidad
     @PostMapping
-    public Disponibilidad create(@RequestBody Disponibilidad disponibilidad) {
+    public Disponibilidad create(@Valid @RequestBody Disponibilidad disponibilidad) {
         return disponibilidadService.create(disponibilidad);
     }
 
     // PUT /api/disponibilidad/{id} — actualizar horario de disponibilidad
     @PutMapping("/{id}")
-    public Disponibilidad update(@PathVariable Integer id, @RequestBody Disponibilidad disponibilidad) {
+    public Disponibilidad update(@PathVariable Integer id, @Valid @RequestBody Disponibilidad disponibilidad) {
         return disponibilidadService.update(id, disponibilidad);
     }
 

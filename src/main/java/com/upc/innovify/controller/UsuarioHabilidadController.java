@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.UsuarioHabilidad;
 import com.upc.innovify.service.UsuarioHabilidadService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class UsuarioHabilidadController {
 
     // POST /api/usuario-habilidades — asociar habilidad a un usuario
     @PostMapping
-    public UsuarioHabilidad create(@RequestBody UsuarioHabilidad usuarioHabilidad) {
+    public UsuarioHabilidad create(@Valid @RequestBody UsuarioHabilidad usuarioHabilidad) {
         return usuarioHabilidadService.create(usuarioHabilidad);
     }
 

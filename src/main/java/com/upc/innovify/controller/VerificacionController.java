@@ -4,6 +4,7 @@ import com.upc.innovify.model.Verificacion;
 import com.upc.innovify.model.Usuario;
 import com.upc.innovify.repository.UsuarioRepository;
 import com.upc.innovify.service.VerificacionService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -29,7 +30,7 @@ public class VerificacionController {
 
     // POST /api/verificaciones — crear solicitud de verificación de estudiante
     @PostMapping
-    public Verificacion create(@RequestBody Verificacion verificacion) {
+    public Verificacion create(@Valid @RequestBody Verificacion verificacion) {
         return verificacionService.create(verificacion);
     }
 

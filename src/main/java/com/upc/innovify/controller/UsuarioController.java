@@ -37,20 +37,26 @@ public class UsuarioController {
 
     // PUT /api/usuarios/{id} — actualizar datos del usuario
     @PutMapping("/{id}")
-    public Usuario update(@PathVariable Integer id, @RequestBody Usuario usuario) {
+    public Usuario update(@PathVariable Integer id,
+                          @RequestBody Usuario usuario) {
         return usuarioService.update(id, usuario);
     }
 
     // PUT /api/usuarios/{id}/biografia — actualizar biografía del usuario
     @PutMapping("/{id}/biografia")
-    public Usuario actualizarBiografia(@PathVariable Integer id, @RequestBody String biografia) {
+    public Usuario actualizarBiografia(
+            @PathVariable Integer id,
+            @RequestBody String biografia) {
         return usuarioService.actualizarBiografia(id, biografia);
     }
 
-
+    // POST /api/usuarios/login — autenticar con correoInstitucional + password
     @PostMapping("/login")
     public Usuario login(@RequestBody Usuario usuario) {
-        return usuarioService.login(usuario.getCorreoInstitucional(), usuario.getPassword());
+        return usuarioService.login(
+                usuario.getCorreoInstitucional(),
+                usuario.getPassword()
+        );
     }
 
     // DELETE /api/usuarios/{id} — eliminar usuario
@@ -61,21 +67,15 @@ public class UsuarioController {
 
     // PUT /api/usuarios/{id}/creditos?puntos= — sumar/restar créditos
     @PutMapping("/{id}/creditos")
+    public Usuario actualizarCreditos(
+            @PathVariable Integer id,
+            @RequestParam Integer puntos) {
+        return usuarioService.actualizarCreditos(id, puntos);
+    }
 
+    // PUT /api/usuarios/{id}/tutor — promover usuario a rol tutor
     @PutMapping("/{id}/tutor")
     public Usuario registrarComoTutor(@PathVariable Integer id) {
         return usuarioService.registrarComoTutor(id);
-    }
-
-    @GetMapping("/tutores/buscar")
-    public List<Usuario> buscarTutoresPorHabilidad(@RequestParam String habilidad) {
-        return usuarioService.buscarTutoresPorHabilidad(habilidad);
-    }
-    @GetMapping("/tutores/{id}")
-    public ResponseEntity<Usuario> getPerfilTutor(@PathVariable Integer id) {
-        return usuarioService.getById(id)
-                .filter(u -> "tutor".equals(u.getRol()))
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
     }
 }

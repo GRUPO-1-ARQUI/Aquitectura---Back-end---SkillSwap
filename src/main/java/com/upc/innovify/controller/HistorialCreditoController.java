@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.HistorialCredito;
 import com.upc.innovify.service.HistorialCreditoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -20,7 +21,7 @@ public class HistorialCreditoController {
 
     // POST /api/historial-creditos — registrar movimiento de créditos
     @PostMapping
-    public HistorialCredito create(@RequestBody HistorialCredito historialCredito) {
+    public HistorialCredito create(@Valid @RequestBody HistorialCredito historialCredito) {
         return historialCreditoService.create(historialCredito);
     }
 }

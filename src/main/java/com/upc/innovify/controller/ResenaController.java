@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Resena;
 import com.upc.innovify.service.ResenaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,7 @@ public class ResenaController {
 
     // POST /api/resenas — crear reseña para un usuario
     @PostMapping
-    public Resena create(@RequestBody Resena resena) {
+    public Resena create(@Valid @RequestBody Resena resena) {
         return resenaService.create(resena);
     }
 }
