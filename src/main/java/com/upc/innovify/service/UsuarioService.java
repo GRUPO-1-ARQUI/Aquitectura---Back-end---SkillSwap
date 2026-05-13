@@ -88,5 +88,8 @@ public class UsuarioService {
 
         return usuarioRepository.save(usuario);
     }
+    public List<Usuario> buscarTutoresPorHabilidad(String habilidad) {
+        return usuarioRepository.findByRol("tutor");
+    }
 
 }

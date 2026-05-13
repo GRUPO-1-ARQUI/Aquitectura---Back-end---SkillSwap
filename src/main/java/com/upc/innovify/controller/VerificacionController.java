@@ -56,4 +56,15 @@ public class VerificacionController {
 
         return response;
     }
+    // US24 - aprobar verificacion
+    @PutMapping("/{id}/aprobar")
+    public Verificacion aprobar(@PathVariable Integer id) {
+        return verificacionService.updateEstado(id, "aprobado");
+    }
+
+    // US24 - rechazar verificacion
+    @PutMapping("/{id}/rechazar")
+    public Verificacion rechazar(@PathVariable Integer id) {
+        return verificacionService.updateEstado(id, "rechazado");
+    }
 }
