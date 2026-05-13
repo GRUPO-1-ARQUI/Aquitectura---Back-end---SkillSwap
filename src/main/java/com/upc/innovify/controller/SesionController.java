@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Sesion;
 import com.upc.innovify.service.SesionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class SesionController {
 
     // POST /api/sesiones — crear sesión de tutoría
     @PostMapping
-    public Sesion create(@RequestBody Sesion sesion) {
+    public Sesion create(@Valid @RequestBody Sesion sesion) {
         return sesionService.create(sesion);
     }
 

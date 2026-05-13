@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Mensaje;
 import com.upc.innovify.service.MensajeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -20,7 +21,7 @@ public class MensajeController {
 
     // POST /api/mensajes — enviar mensaje en una solicitud
     @PostMapping
-    public Mensaje create(@RequestBody Mensaje mensaje) {
+    public Mensaje create(@Valid @RequestBody Mensaje mensaje) {
         return mensajeService.create(mensaje);
     }
 }

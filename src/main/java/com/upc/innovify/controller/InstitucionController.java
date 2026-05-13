@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Institucion;
 import com.upc.innovify.service.InstitucionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,13 +30,13 @@ public class InstitucionController {
 
     // POST /api/instituciones — crear institución
     @PostMapping
-    public Institucion create(@RequestBody Institucion institucion) {
+    public Institucion create(@Valid @RequestBody Institucion institucion) {
         return institucionService.create(institucion);
     }
 
     // PUT /api/instituciones/{id} — actualizar institución
     @PutMapping("/{id}")
-    public Institucion update(@PathVariable Integer id, @RequestBody Institucion institucion) {
+    public Institucion update(@PathVariable Integer id, @Valid @RequestBody Institucion institucion) {
         return institucionService.update(id, institucion);
     }
 

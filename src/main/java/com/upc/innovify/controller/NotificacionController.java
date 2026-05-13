@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Notificacion;
 import com.upc.innovify.service.NotificacionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -26,7 +27,7 @@ public class NotificacionController {
 
     // POST /api/notificaciones — crear notificación (tipo, contenido, idUsuario, leido) // HU10 HU15
     @PostMapping
-    public Notificacion create(@RequestBody Notificacion notificacion) {
+    public Notificacion create(@Valid @RequestBody Notificacion notificacion) {
         return notificacionService.create(notificacion);
     }
 

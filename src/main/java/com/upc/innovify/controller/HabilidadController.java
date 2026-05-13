@@ -2,6 +2,7 @@ package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Habilidad;
 import com.upc.innovify.service.HabilidadService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,13 +31,13 @@ public class HabilidadController {
 
     // POST /api/habilidades — crear habilidad
     @PostMapping
-    public Habilidad create(@RequestBody Habilidad habilidad) {
+    public Habilidad create(@Valid @RequestBody Habilidad habilidad) {
         return habilidadService.create(habilidad);
     }
 
     // PUT /api/habilidades/{id} — actualizar habilidad
     @PutMapping("/{id}")
-    public Habilidad update(@PathVariable Integer id, @RequestBody Habilidad habilidad) {
+    public Habilidad update(@PathVariable Integer id, @Valid @RequestBody Habilidad habilidad) {
         return habilidadService.update(id, habilidad);
     }
 
