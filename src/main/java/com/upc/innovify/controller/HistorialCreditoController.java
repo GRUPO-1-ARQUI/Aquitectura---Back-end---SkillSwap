@@ -12,11 +12,13 @@ import java.util.List;
 public class HistorialCreditoController {
     private final HistorialCreditoService historialCreditoService;
 
+    // GET /api/historial-creditos/usuario/{idUsuario} — movimientos de créditos de un usuario
     @GetMapping("/usuario/{idUsuario}")
     public List<HistorialCredito> getByUsuario(@PathVariable Integer idUsuario) {
         return historialCreditoService.getByUsuario(idUsuario);
     }
 
+    // POST /api/historial-creditos — registrar movimiento de créditos
     @PostMapping
     public HistorialCredito create(@RequestBody HistorialCredito historialCredito) {
         return historialCreditoService.create(historialCredito);

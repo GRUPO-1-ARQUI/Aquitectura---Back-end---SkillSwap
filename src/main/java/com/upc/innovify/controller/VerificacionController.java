@@ -21,25 +21,26 @@ public class VerificacionController {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // US22 - pendientes
+    // GET /api/verificaciones/pendientes — listar solicitudes de verificación pendientes // HU24
     @GetMapping("/pendientes")
     public List<Verificacion> getPendientes() {
         return verificacionService.getPendientes();
     }
 
-    // US18 - crear verificación
+    // POST /api/verificaciones — crear solicitud de verificación de estudiante
     @PostMapping
     public Verificacion create(@RequestBody Verificacion verificacion) {
         return verificacionService.create(verificacion);
     }
 
-    // actualizar estado
+    // PUT /api/verificaciones/{id}/estado?estado= — aprobar o rechazar verificación // HU24
     @PutMapping("/{id}/estado")
     public Verificacion updateEstado(@PathVariable Integer id,
                                      @RequestParam String estado) {
         return verificacionService.updateEstado(id, estado);
     }
 
+    // GET /api/verificaciones/estudiantes-verificacion/{idUsuario} — datos del estudiante para el detalle // HU24
     @GetMapping("/estudiantes-verificacion/{idUsuario}")
     public Map<String, Object> getEstudiante(@PathVariable Integer idUsuario) {
 
