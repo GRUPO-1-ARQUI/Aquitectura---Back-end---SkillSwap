@@ -1,71 +1,45 @@
 package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Verificacion;
-import com.upc.innovify.model.Usuario;
-import com.upc.innovify.repository.UsuarioRepository;
 import com.upc.innovify.service.VerificacionService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/verificaciones")
+@RequiredArgsConstructor
 public class VerificacionController {
 
     private final VerificacionService verificacionService;
-    private final UsuarioRepository usuarioRepository;
 
-    public VerificacionController(VerificacionService verificacionService,
-                                  UsuarioRepository usuarioRepository) {
-        this.verificacionService = verificacionService;
-        this.usuarioRepository = usuarioRepository;
-    }
-
-    // GET /api/verificaciones/pendientes — listar solicitudes de verificación pendientes // HU24
     @GetMapping("/pendientes")
-    public List<Verificacion> getPendientes() {
-        return verificacionService.getPendientes();
+    public ResponseEntity<List<Verificacion>> getPendientes() {
+        return ResponseEntity.ok(verificacionService.getPendientes());
     }
 
-    // POST /api/verificaciones — crear solicitud de verificación de estudiante
     @PostMapping
-    public Verificacion create(@Valid @RequestBody Verificacion verificacion) {
-        return verificacionService.create(verificacion);
+    public ResponseEntity<Verificacion> create(@Valid @RequestBody Verificacion verificacion) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(verificacionService.create(verificacion));
     }
 
-    // PUT /api/verificaciones/{id}/estado?estado= — aprobar o rechazar verificación // HU24
-    @PutMapping("/{id}/estado")
-    public Verificacion updateEstado(@PathVariable Integer id,
-                                     @RequestParam String estado) {
-        return verificacionService.updateEstado(id, estado);
-    }
-
-    // GET /api/verificaciones/estudiantes-verificacion/{idUsuario} — datos del estudiante para el detalle // HU24
     @GetMapping("/estudiantes-verificacion/{idUsuario}")
-    public Map<String, Object> getEstudiante(@PathVariable Integer idUsuario) {
-
-        Usuario estudiante = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("idUsuario", estudiante.getIdUsuario());
-        response.put("nombre", estudiante.getNombreCompleto());
-        response.put("email", estudiante.getCorreoInstitucional());
-        response.put("estado", estudiante.getEstado());
-        response.put("verificado", estudiante.getVerificado());
-
-        return response;
+    public ResponseEntity<Map<String, Object>> getEstudiante(@PathVariable Integer idUsuario) {
+        return ResponseEntity.ok(verificacionService.getEstudiante(idUsuario));
     }
-    // US24 - aprobar verificacion
+
     @PutMapping("/{id}/aprobar")
-    public Verificacion aprobar(@PathVariable Integer id) {
-        return verificacionService.updateEstado(id, "aprobado");
+    public ResponseEntity<Verificacion> aprobar(@PathVariable Integer id) {
+        return ResponseEntity.ok(verificacionService.aprobar(id));
     }
 
-    // US24 - rechazar verificacion
     @PutMapping("/{id}/rechazar")
-    public Verificacion rechazar(@PathVariable Integer id) {
-        return verificacionService.updateEstado(id, "rechazado");
+    public ResponseEntity<Verificacion> rechazar(@PathVariable Integer id) {
+        return ResponseEntity.ok(verificacionService.rechazar(id));
     }
 }
