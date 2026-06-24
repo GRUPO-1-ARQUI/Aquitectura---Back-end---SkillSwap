@@ -1,18 +1,37 @@
 package com.upc.innovify.service;
 
 import com.upc.innovify.model.Sesion;
+import com.upc.innovify.repository.SesionRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-public interface SesionService {
+@Service
+@RequiredArgsConstructor
+public class SesionService {
+    private final SesionRepository sesionRepository;
 
-    List<Sesion> getAll();
+    public List<Sesion> getAll() {
+        return sesionRepository.findAll();
+    }
 
-    Optional<Sesion> getById(Integer id);
+    public Optional<Sesion> getById(Integer id) {
+        return sesionRepository.findById(id);
+    }
 
-    List<Sesion> getBySolicitud(Integer idSolicitud);
+    public List<Sesion> getBySolicitud(Integer idSolicitud) {
+        return sesionRepository.findByIdSolicitud(idSolicitud);
+    }
 
-    Sesion create(Sesion sesion);
+    public Sesion create(Sesion sesion) {
+        sesion.setEstado("programada");
+        return sesionRepository.save(sesion);
+    }
 
-    Sesion updateEstado(Integer id, String estado);
+    public Sesion updateEstado(Integer id, String estado) {
+        Sesion sesion = sesionRepository.findById(id).orElseThrow();
+        sesion.setEstado(estado);
+        return sesionRepository.save(sesion);
+    }
 }

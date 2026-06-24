@@ -1,22 +1,43 @@
 package com.upc.innovify.service;
 
 import com.upc.innovify.model.Solicitud;
+import com.upc.innovify.repository.SolicitudRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-public interface SolicitudService {
+@Service
+@RequiredArgsConstructor
+public class SolicitudService {
+    private final SolicitudRepository solicitudRepository;
 
-    List<Solicitud> getAll();
+    public List<Solicitud> getAll() {
+        return solicitudRepository.findAll();
+    }
 
-    Optional<Solicitud> getById(Integer id);
+    public Optional<Solicitud> getById(Integer id) {
+        return solicitudRepository.findById(id);
+    }
 
-    List<Solicitud> getByTutor(Integer idTutor);
+    public List<Solicitud> getByTutor(Integer idTutor) {
+        return solicitudRepository.findByIdTutor(idTutor);
+    }
 
-    List<Solicitud> getByAprendiz(Integer idAprendiz);
+    public List<Solicitud> getByAprendiz(Integer idAprendiz) {
+        return solicitudRepository.findByIdAprendiz(idAprendiz);
+    }
 
-    Solicitud create(Solicitud solicitud);
+    public Solicitud create(Solicitud solicitud) {
+        solicitud.setEstado("pendiente");
+        solicitud.setFecha(LocalDateTime.now());
+        return solicitudRepository.save(solicitud);
+    }
 
-    Solicitud updateEstado(Integer id, String estado);
-
-    void delete(Integer id);
+    public Solicitud updateEstado(Integer id, String estado) {
+        Solicitud solicitud = solicitudRepository.findById(id).orElseThrow();
+        solicitud.setEstado(estado);
+        return solicitudRepository.save(solicitud);
+    }
 }
