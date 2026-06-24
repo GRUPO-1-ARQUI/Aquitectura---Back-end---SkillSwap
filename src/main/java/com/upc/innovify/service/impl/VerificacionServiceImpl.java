@@ -35,7 +35,16 @@ public class VerificacionServiceImpl implements VerificacionService {
         return verificacionRepository.save(verificacion);
     }
 
-    // US24 — Aprobar: actualiza estado de verificación y marca al usuario como verificado
+    @Override
+    @Transactional
+    public Verificacion updateEstado(Integer id, String estado) {
+        Verificacion verificacion = verificacionRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Verificación no encontrada con id: " + id));
+        verificacion.setEstado(estado);
+        return verificacionRepository.save(verificacion);
+    }
+
     @Override
     @Transactional
     public Verificacion aprobar(Integer id) {
