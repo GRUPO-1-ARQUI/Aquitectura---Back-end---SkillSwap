@@ -40,4 +40,8 @@ public class SolicitudService {
         solicitud.setEstado(estado);
         return solicitudRepository.save(solicitud);
     }
+
+    public void delete(Integer id) {
+        solicitudRepository.deleteById(id);
+    }
 }
