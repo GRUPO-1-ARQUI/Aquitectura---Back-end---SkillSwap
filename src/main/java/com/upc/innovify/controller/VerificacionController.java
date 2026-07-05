@@ -1,5 +1,6 @@
 package com.upc.innovify.controller;
 
+import com.upc.innovify.dto.ReporteVerificacionesDTO;
 import com.upc.innovify.model.Verificacion;
 import com.upc.innovify.service.VerificacionService;
 import jakarta.validation.Valid;
@@ -41,5 +42,16 @@ public class VerificacionController {
     @PutMapping("/{id}/rechazar")
     public ResponseEntity<Verificacion> rechazar(@PathVariable Integer id) {
         return ResponseEntity.ok(verificacionService.rechazar(id));
+    }
+
+    // US44 - Aprobar verificaciones múltiples
+    @PutMapping("/aprobar-multiples")
+    public ResponseEntity<List<Verificacion>> aprobarMultiples(@RequestBody List<Integer> ids) {
+        return ResponseEntity.ok(verificacionService.aprobarMultiples(ids));
+    }
+    // US43 - Reporte de verificaciones por institución
+    @GetMapping("/reporte/institucion/{idInstitucion}")
+    public ResponseEntity<ReporteVerificacionesDTO> getReportePorInstitucion(@PathVariable Integer idInstitucion) {
+        return ResponseEntity.ok(verificacionService.getReportePorInstitucion(idInstitucion));
     }
 }

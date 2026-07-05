@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface SesionRepository extends JpaRepository<Sesion, Integer> {
     List<Sesion> findByIdSolicitud(Integer idSolicitud);
+    List<Sesion> findByIdSolicitudInAndEstado(List<Integer> idsSolicitud, String estado);
 }

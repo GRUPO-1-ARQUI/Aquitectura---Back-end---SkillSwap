@@ -5,7 +5,9 @@ import com.upc.innovify.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @RestController
@@ -77,5 +79,40 @@ public class UsuarioController {
     @PutMapping("/{id}/tutor")
     public Usuario registrarComoTutor(@PathVariable Integer id) {
         return usuarioService.registrarComoTutor(id);
+    }
+
+    // US25 - Buscar estudiantes por nombre o código
+    @GetMapping("/estudiantes/buscar")
+    public ResponseEntity<?> buscarEstudiantes(@RequestParam String texto) {
+
+        List<Usuario> estudiantes = usuarioService.buscarEstudiantes(texto);
+
+        if (estudiantes.isEmpty()) {
+            return ResponseEntity.ok("No se encontraron resultados para tu búsqueda");
+        }
+
+        return ResponseEntity.ok(estudiantes);
+    }
+
+    // US46 - Exportar lista de estudiantes
+    @GetMapping("/estudiantes/exportar")
+    public ResponseEntity<?> exportarEstudiantes() {
+
+        List<Usuario> estudiantes = usuarioService.exportarEstudiantes();
+
+        if (estudiantes.isEmpty()) {
+            return ResponseEntity.ok("No hay estudiantes para exportar");
+        }
+
+        return ResponseEntity.ok(estudiantes);
+    }
+    // US49 - Listar estudiantes con paginación
+    @GetMapping("/estudiantes/paginado")
+    public Page<Usuario> getEstudiantesPaginado(
+            @RequestParam(defaultValue = "0") int pagina,
+            @RequestParam(defaultValue = "10") int tamano) {
+
+        Pageable pageable = PageRequest.of(pagina, tamano);
+        return usuarioService.getEstudiantesPaginado(pageable);
     }
 }

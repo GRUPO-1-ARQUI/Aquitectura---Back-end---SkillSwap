@@ -1,5 +1,6 @@
 package com.upc.innovify.service.impl;
 
+import com.upc.innovify.dto.ReporteVerificacionesDTO;
 import com.upc.innovify.model.Usuario;
 import com.upc.innovify.model.Verificacion;
 import com.upc.innovify.repository.UsuarioRepository;
@@ -109,5 +110,46 @@ public class VerificacionServiceImpl implements VerificacionService {
             data.put("reputacion", estudiante.getReputacionPromedio());
             return data;
         }).toList();
+    }
+    // US44 - Aprobar múltiples verificaciones a la vez
+    @Override
+    @Transactional
+    public List<Verificacion> aprobarMultiples(List<Integer> ids) {
+        return ids.stream()
+                .map(this::aprobar)
+                .toList();
+    }
+    // US43 - Reporte de verificados vs pendientes por institución
+    @Override
+    public ReporteVerificacionesDTO getReportePorInstitucion(Integer idInstitucion) {
+
+        List<Usuario> usuariosInstitucion = usuarioRepository.findByIdInstitucion(idInstitucion);
+
+        List<Integer> idsUsuarios = usuariosInstitucion.stream()
+                .map(Usuario::getIdUsuario)
+                .toList();
+
+        long verificados = usuariosInstitucion.stream()
+                .filter(u -> Boolean.TRUE.equals(u.getVerificado()))
+                .count();
+
+        List<Verificacion> verificacionesInstitucion = verificacionRepository.findAll().stream()
+                .filter(v -> idsUsuarios.contains(v.getIdUsuario()))
+                .toList();
+
+        long pendientes = verificacionesInstitucion.stream()
+                .filter(v -> "pendiente".equals(v.getEstado()))
+                .count();
+
+        long rechazados = verificacionesInstitucion.stream()
+                .filter(v -> "rechazado".equals(v.getEstado()))
+                .count();
+
+        return new ReporteVerificacionesDTO(
+                verificados,
+                pendientes,
+                rechazados,
+                (long) usuariosInstitucion.size()
+        );
     }
 }

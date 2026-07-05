@@ -1,5 +1,6 @@
 package com.upc.innovify.controller;
 
+import com.upc.innovify.dto.HistorialSesionDTO;
 import com.upc.innovify.model.Sesion;
 import com.upc.innovify.service.SesionService;
 import jakarta.validation.Valid;
@@ -44,5 +45,10 @@ public class SesionController {
     @PutMapping("/{id}/estado")
     public Sesion updateEstado(@PathVariable Integer id, @RequestParam String estado) {
         return sesionService.updateEstado(id, estado);
+    }
+    // US40 - Historial de sesiones completadas de un tutor
+    @GetMapping("/historial/tutor/{idTutor}")
+    public List<HistorialSesionDTO> getHistorialPorTutor(@PathVariable Integer idTutor) {
+        return sesionService.getHistorialPorTutor(idTutor);
     }
 }

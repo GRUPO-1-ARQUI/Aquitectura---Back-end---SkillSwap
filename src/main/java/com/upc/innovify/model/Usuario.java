@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
@@ -24,6 +25,11 @@ public class Usuario {
     @Email(message = "El formato del correo es inválido")
     @Column(name = "correo_institucional", unique = true)
     private String correoInstitucional;
+
+    @NotBlank(message = "El código de estudiante es obligatorio")
+    @Size(max = 20, message = "El código no puede exceder 20 caracteres")
+    @Column(name = "codigo_estudiante", unique = true)
+    private String codigoEstudiante;
 
     @NotBlank(message = "La contraseña es obligatoria")
     @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")

@@ -4,7 +4,8 @@ import com.upc.innovify.model.Usuario;
 import com.upc.innovify.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +34,7 @@ public class UsuarioService {
 
         existing.setNombreCompleto(usuario.getNombreCompleto());
         existing.setCorreoInstitucional(usuario.getCorreoInstitucional());
+        existing.setCodigoEstudiante(usuario.getCodigoEstudiante());
         existing.setPassword(usuario.getPassword());
         existing.setIdInstitucion(usuario.getIdInstitucion());
         existing.setRol(usuario.getRol());
@@ -70,6 +72,7 @@ public class UsuarioService {
     public void delete(Integer id) {
         usuarioRepository.deleteById(id);
     }
+
     public Usuario actualizarCreditos(Integer idUsuario, Integer puntos) {
 
         Usuario usuario = usuarioRepository.findById(idUsuario)
@@ -79,6 +82,7 @@ public class UsuarioService {
 
         return usuarioRepository.save(usuario);
     }
+
     public Usuario registrarComoTutor(Integer idUsuario) {
 
         Usuario usuario = usuarioRepository.findById(idUsuario)
@@ -88,8 +92,22 @@ public class UsuarioService {
 
         return usuarioRepository.save(usuario);
     }
+
     public List<Usuario> buscarTutoresPorHabilidad(String habilidad) {
         return usuarioRepository.findByRol("tutor");
     }
 
+    // US25 - Buscar estudiantes por nombre o código
+    public List<Usuario> buscarEstudiantes(String texto) {
+        return usuarioRepository.buscarEstudiantes(texto);
+    }
+
+    // US46 - Exportar lista de estudiantes
+    public List<Usuario> exportarEstudiantes() {
+        return usuarioRepository.findByRol("estudiante");
+    }
+    // US49 - Listar estudiantes con paginación
+    public Page<Usuario> getEstudiantesPaginado(Pageable pageable) {
+        return usuarioRepository.findByRol("estudiante", pageable);
+    }
 }
