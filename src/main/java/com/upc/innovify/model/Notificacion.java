@@ -30,4 +30,10 @@ public class Notificacion {
     @NotNull(message = "El estado de lectura es obligatorio")
     @Column(name = "leido")
     private Boolean leido;
+
+    @Column(name = "accion")
+    private String accion; // Guardará "RESPONDER_MENSAJE" o "IR_A_CHAT"
+
+    @Column(name = "id_referencia")
+    private Integer idReferencia; // Guardará el id_solicitud
 }
