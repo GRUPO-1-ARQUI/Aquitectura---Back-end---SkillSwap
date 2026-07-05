@@ -31,5 +31,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
         )
     """)
     List<Usuario> buscarEstudiantes(@Param("texto") String texto);
+
     List<Usuario> findByIdInstitucion(Integer idInstitucion);
+
+    List<Usuario> findByIdInstitucionAndRol(Integer idInstitucion, String rol);
 }
