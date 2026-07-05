@@ -119,11 +119,26 @@ public class UsuarioController {
     }
 
     // PATCH /api/usuarios/{id}/fcm-token — registrar/actualizar token del dispositivo (US33)
+    // PATCH /api/usuarios/{id}/fcm-token — registrar/actualizar token del dispositivo (US33)
     @PatchMapping("/{id}/fcm-token")
     public UsuarioResponseDTO actualizarFcmToken(
             @PathVariable Integer id,
             @RequestBody String fcmToken) {
         return usuarioService.actualizarFcmToken(id, fcmToken);
+    }
+
+    // PATCH /api/usuarios/{id}/disponibilidad — activar/desactivar modo "No disponible" (US38)
+    @PatchMapping("/{id}/disponibilidad")
+    public UsuarioResponseDTO actualizarDisponibilidad(
+            @PathVariable Integer id,
+            @RequestBody Boolean disponible) {
+        return usuarioService.actualizarDisponibilidad(id, disponible);
+    }
+
+    // GET /api/usuarios/tutores/buscar — tutores disponibles (US38, US05)
+    @GetMapping("/tutores/buscar")
+    public List<UsuarioResponseDTO> buscarTutoresPorHabilidad(@RequestParam String habilidad) {
+        return usuarioService.buscarTutoresPorHabilidad(habilidad);
     }
 }
 

@@ -60,6 +60,7 @@ public class UsuarioService {
         usuario.setCreditos(0);
         usuario.setEstado("activo");
         usuario.setReputacionPromedio(null);
+        usuario.setDisponible(true);
         return toResponse(usuarioRepository.save(usuario));
     }
 
@@ -124,7 +125,7 @@ public class UsuarioService {
     }
 
     public List<UsuarioResponseDTO> buscarTutoresPorHabilidad(String habilidad) {
-        return usuarioRepository.findByRol("tutor").stream()
+        return usuarioRepository.findByRolAndDisponible("tutor", true).stream()
                 .map(this::toResponse)
                 .toList();
     }
@@ -159,6 +160,7 @@ public class UsuarioService {
         dto.setEstado(u.getEstado());
         dto.setVerificado(u.getVerificado());
         dto.setEnLinea(estaEnLinea(u));
+        dto.setDisponible(u.getDisponible());
         return dto;
     }
 
@@ -175,6 +177,16 @@ public class UsuarioService {
         usuario.setFcmToken(fcmToken);
 
         // toResponse es el método que ya debes tener para convertir la entidad a DTO
+        return toResponse(usuarioRepository.save(usuario));
+    }
+
+    // US38 - alterna el estado "Disponible" / "No disponible" del tutor
+    public UsuarioResponseDTO actualizarDisponibilidad(Integer id, Boolean disponible) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        usuario.setDisponible(disponible);
+
         return toResponse(usuarioRepository.save(usuario));
     }
 }

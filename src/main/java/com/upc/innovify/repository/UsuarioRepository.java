@@ -35,4 +35,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     List<Usuario> findByIdInstitucion(Integer idInstitucion);
 
     List<Usuario> findByIdInstitucionAndRol(Integer idInstitucion, String rol);
+
+    List<Usuario> findByRolAndDisponible(String rol, Boolean disponible);
+
 }
