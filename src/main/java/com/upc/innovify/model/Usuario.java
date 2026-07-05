@@ -9,7 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
@@ -20,6 +19,9 @@ public class Usuario {
 
     @Column(name = "correo_institucional", unique = true)
     private String correoInstitucional;
+
+    @Column(name = "codigo_estudiante", unique = true)
+    private String codigoEstudiante;
 
     @Column(name = "password")
     private String password;

@@ -10,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @RestController
@@ -82,4 +84,38 @@ public class UsuarioController {
     public UsuarioResponseDTO registrarComoTutor(@PathVariable Integer id) {
         return usuarioService.registrarComoTutor(id);
     }
+
+    @GetMapping("/estudiantes/buscar")
+    public ResponseEntity<?> buscarEstudiantes(@RequestParam String texto) {
+
+        List<UsuarioResponseDTO> estudiantes = usuarioService.buscarEstudiantes(texto);
+
+        if (estudiantes.isEmpty()) {
+            return ResponseEntity.ok("No se encontraron resultados para tu búsqueda");
+        }
+
+        return ResponseEntity.ok(estudiantes);
+    }
+
+    @GetMapping("/estudiantes/exportar")
+    public ResponseEntity<?> exportarEstudiantes() {
+
+        List<UsuarioResponseDTO> estudiantes = usuarioService.exportarEstudiantes();
+
+        if (estudiantes.isEmpty()) {
+            return ResponseEntity.ok("No hay estudiantes para exportar");
+        }
+
+        return ResponseEntity.ok(estudiantes);
+    }
+
+    @GetMapping("/estudiantes/paginado")
+    public Page<UsuarioResponseDTO> getEstudiantesPaginado(
+            @RequestParam(defaultValue = "0") int pagina,
+            @RequestParam(defaultValue = "10") int tamano) {
+
+        Pageable pageable = PageRequest.of(pagina, tamano);
+        return usuarioService.getEstudiantesPaginado(pageable);
+    }
 }
+

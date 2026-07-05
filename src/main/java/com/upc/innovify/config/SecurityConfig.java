@@ -54,6 +54,14 @@ public class SecurityConfig {
                     "/swagger-ui/**", "/swagger-ui.html",
                     "/api-docs/**", "/v3/api-docs/**"
                 ).permitAll()
+                .requestMatchers("/api/plantillas/**").permitAll()
+                .requestMatchers("/api/sesiones/**").permitAll()
+                .requestMatchers("/api/habilidades/**").permitAll()
+                .requestMatchers("/api/solicitudes/**").permitAll()
+                .requestMatchers("/api/instituciones/**").permitAll()
+                .requestMatchers("/api/verificaciones/**").permitAll()
+                .requestMatchers("/api/dashboard/**").permitAll()
+                .requestMatchers("/api/favoritos/**").permitAll()
                 .anyRequest().authenticated()
             )
             .exceptionHandling(ex -> ex

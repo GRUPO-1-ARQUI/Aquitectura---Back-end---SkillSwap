@@ -7,6 +7,8 @@ import com.upc.innovify.model.Usuario;
 import com.upc.innovify.repository.UsuarioRepository;
 import com.upc.innovify.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -121,6 +123,23 @@ public class UsuarioService {
         return usuarioRepository.findByRol("tutor").stream()
                 .map(this::toResponse)
                 .toList();
+    }
+
+    public List<UsuarioResponseDTO> buscarEstudiantes(String texto) {
+        return usuarioRepository.buscarEstudiantes(texto).stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    public List<UsuarioResponseDTO> exportarEstudiantes() {
+        return usuarioRepository.findByRol("estudiante").stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    public Page<UsuarioResponseDTO> getEstudiantesPaginado(Pageable pageable) {
+        return usuarioRepository.findByRol("estudiante", pageable)
+                .map(this::toResponse);
     }
 
     private UsuarioResponseDTO toResponse(Usuario u) {
