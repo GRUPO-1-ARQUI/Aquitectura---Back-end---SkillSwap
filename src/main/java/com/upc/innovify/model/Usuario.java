@@ -54,4 +54,7 @@ public class Usuario {
 
     @Column(name = "ultima_conexion")
     private LocalDateTime ultimaConexion;
+
+    @Column(name = "disponible")
+    private Boolean disponible;
 }

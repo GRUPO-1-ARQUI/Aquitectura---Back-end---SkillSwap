@@ -15,4 +15,6 @@ public class UsuarioResponseDTO {
     private String estado;
     private Boolean verificado;
     private Boolean enLinea;
+    private Boolean disponible;
+
 }
