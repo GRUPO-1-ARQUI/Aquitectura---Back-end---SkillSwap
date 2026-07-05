@@ -3,7 +3,7 @@ package com.upc.innovify.service.impl;
 import com.upc.innovify.model.Notificacion;
 import com.upc.innovify.model.Solicitud;
 import com.upc.innovify.model.Usuario;
-import com.upc.innovify.repository.NotificacionRepository;
+import com.upc.innovify.service.NotificacionService;
 import com.upc.innovify.repository.SolicitudRepository;
 import com.upc.innovify.repository.UsuarioRepository;
 import com.upc.innovify.service.SolicitudService;
@@ -22,8 +22,7 @@ public class SolicitudServiceImpl implements SolicitudService {
 
     private final SolicitudRepository solicitudRepository;
     private final UsuarioRepository usuarioRepository;
-    private final NotificacionRepository notificacionRepository;
-
+    private final NotificacionService notificacionService;
     @Override
     public List<Solicitud> getAll() {
         return solicitudRepository.findAll();
@@ -79,7 +78,7 @@ public class SolicitudServiceImpl implements SolicitudService {
         if ("aceptado".equals(estado) || "rechazado".equals(estado)) {
             Notificacion notificacion = new Notificacion();
             notificacion.setIdUsuario(saved.getIdAprendiz());
-            notificacion.setLeido(false);
+            notificacion.setIdReferencia(saved.getIdSolicitud());
             if ("aceptado".equals(estado)) {
                 notificacion.setTipo("solicitud_aceptada");
                 notificacion.setContenido("Tu solicitud de tutoría fue aceptada por el tutor.");
@@ -87,7 +86,7 @@ public class SolicitudServiceImpl implements SolicitudService {
                 notificacion.setTipo("solicitud_rechazada");
                 notificacion.setContenido("Tu solicitud de tutoría fue rechazada por el tutor.");
             }
-            notificacionRepository.save(notificacion);
+            notificacionService.create(notificacion);
         }
 
         return saved;
