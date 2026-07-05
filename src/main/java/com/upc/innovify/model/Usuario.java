@@ -3,6 +3,8 @@ package com.upc.innovify.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "usuarios")
 @Data
@@ -49,4 +51,7 @@ public class Usuario {
 
     @Column(name = "fcm_token")
     private String fcmToken;
+
+    @Column(name = "ultima_conexion")
+    private LocalDateTime ultimaConexion;
 }
