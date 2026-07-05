@@ -14,12 +14,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UsuarioService {
+
+    // US30 - minutos sin actividad tras los cuales el tutor deja de verse "en línea"
+    private static final long MINUTOS_UMBRAL_EN_LINEA = 3;
 
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
@@ -154,7 +158,14 @@ public class UsuarioService {
         dto.setBiografia(u.getBiografia());
         dto.setEstado(u.getEstado());
         dto.setVerificado(u.getVerificado());
+        dto.setEnLinea(estaEnLinea(u));
         return dto;
+    }
+
+    // US30 - un usuario se considera "en línea" si tuvo actividad reciente
+    private boolean estaEnLinea(Usuario u) {
+        return u.getUltimaConexion() != null
+                && u.getUltimaConexion().isAfter(LocalDateTime.now().minusMinutes(MINUTOS_UMBRAL_EN_LINEA));
     }
 
     public UsuarioResponseDTO actualizarFcmToken(Integer id, String fcmToken) {

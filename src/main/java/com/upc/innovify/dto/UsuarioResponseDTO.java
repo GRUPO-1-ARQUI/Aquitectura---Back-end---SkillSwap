@@ -14,4 +14,5 @@ public class UsuarioResponseDTO {
     private String biografia;
     private String estado;
     private Boolean verificado;
+    private Boolean enLinea;
 }
