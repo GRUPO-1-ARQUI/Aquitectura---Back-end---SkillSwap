@@ -52,6 +52,7 @@ public class NotificacionService {
         String t = tipo.toLowerCase();
         if (t.contains("mensaje")) return "RESPONDER_MENSAJE";
         if (t.contains("aceptad")) return "IR_A_CHAT";
+        if (t.contains("reporte")) return "VER_REPORTES";
         return null;
     }
 
