@@ -156,4 +156,14 @@ public class UsuarioService {
         dto.setVerificado(u.getVerificado());
         return dto;
     }
+
+    public UsuarioResponseDTO actualizarFcmToken(Integer id, String fcmToken) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        usuario.setFcmToken(fcmToken);
+
+        // toResponse es el método que ya debes tener para convertir la entidad a DTO
+        return toResponse(usuarioRepository.save(usuario));
+    }
 }

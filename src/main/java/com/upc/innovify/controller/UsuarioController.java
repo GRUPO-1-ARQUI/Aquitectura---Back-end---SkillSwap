@@ -117,5 +117,13 @@ public class UsuarioController {
         Pageable pageable = PageRequest.of(pagina, tamano);
         return usuarioService.getEstudiantesPaginado(pageable);
     }
+
+    // PATCH /api/usuarios/{id}/fcm-token — registrar/actualizar token del dispositivo (US33)
+    @PatchMapping("/{id}/fcm-token")
+    public UsuarioResponseDTO actualizarFcmToken(
+            @PathVariable Integer id,
+            @RequestBody String fcmToken) {
+        return usuarioService.actualizarFcmToken(id, fcmToken);
+    }
 }
 

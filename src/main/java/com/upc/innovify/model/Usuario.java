@@ -46,4 +46,7 @@ public class Usuario {
 
     @Column(name = "verificado")
     private Boolean verificado;
+
+    @Column(name = "fcm_token")
+    private String fcmToken;
 }
