@@ -1,9 +1,14 @@
 package com.upc.innovify.controller;
 
-import com.upc.innovify.model.Usuario;
+import com.upc.innovify.dto.LoginRequestDTO;
+import com.upc.innovify.dto.LoginResponseDTO;
+import com.upc.innovify.dto.UsuarioRequestDTO;
+import com.upc.innovify.dto.UsuarioResponseDTO;
 import com.upc.innovify.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,75 +22,73 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
-    // GET /api/usuarios — listar todos los usuarios // HU04 HU05
+    // GET /api/usuarios
     @GetMapping
-    public List<Usuario> getAll() {
+    public List<UsuarioResponseDTO> getAll() {
         return usuarioService.getAll();
     }
 
-    // GET /api/usuarios/{id} — obtener usuario por ID // HU16
+    // GET /api/usuarios/{id}
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> getById(@PathVariable Integer id) {
+    public ResponseEntity<UsuarioResponseDTO> getById(@PathVariable Integer id) {
         return usuarioService.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // POST /api/usuarios — crear nuevo usuario
+    // POST /api/usuarios
     @PostMapping
-    public Usuario create(@RequestBody Usuario usuario) {
-        return usuarioService.create(usuario);
+    public UsuarioResponseDTO create(@Valid @RequestBody UsuarioRequestDTO dto) {
+        return usuarioService.create(dto);
     }
 
-    // PUT /api/usuarios/{id} — actualizar datos del usuario
+    // PUT /api/usuarios/{id}
     @PutMapping("/{id}")
-    public Usuario update(@PathVariable Integer id,
-                          @RequestBody Usuario usuario) {
-        return usuarioService.update(id, usuario);
+    public UsuarioResponseDTO update(@PathVariable Integer id,
+                                     @Valid @RequestBody UsuarioRequestDTO dto) {
+        return usuarioService.update(id, dto);
     }
 
-    // PUT /api/usuarios/{id}/biografia — actualizar biografía del usuario
+    // PUT /api/usuarios/{id}/biografia
     @PutMapping("/{id}/biografia")
-    public Usuario actualizarBiografia(
+    public UsuarioResponseDTO actualizarBiografia(
             @PathVariable Integer id,
             @RequestBody String biografia) {
         return usuarioService.actualizarBiografia(id, biografia);
     }
 
-    // POST /api/usuarios/login — autenticar con correoInstitucional + password
+    // POST /api/usuarios/login
     @PostMapping("/login")
-    public Usuario login(@RequestBody Usuario usuario) {
-        return usuarioService.login(
-                usuario.getCorreoInstitucional(),
-                usuario.getPassword()
-        );
+    public LoginResponseDTO login(@Valid @RequestBody LoginRequestDTO dto) {
+        return usuarioService.login(dto.getCorreoInstitucional(), dto.getPassword());
     }
 
-    // DELETE /api/usuarios/{id} — eliminar usuario
+    // DELETE /api/usuarios/{id}
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         usuarioService.delete(id);
     }
 
-    // PUT /api/usuarios/{id}/creditos?puntos= — sumar/restar créditos
+    // PUT /api/usuarios/{id}/creditos?puntos=
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PutMapping("/{id}/creditos")
-    public Usuario actualizarCreditos(
+    public UsuarioResponseDTO actualizarCreditos(
             @PathVariable Integer id,
             @RequestParam Integer puntos) {
         return usuarioService.actualizarCreditos(id, puntos);
     }
 
-    // PUT /api/usuarios/{id}/tutor — promover usuario a rol tutor
+    // PUT /api/usuarios/{id}/tutor
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PutMapping("/{id}/tutor")
-    public Usuario registrarComoTutor(@PathVariable Integer id) {
+    public UsuarioResponseDTO registrarComoTutor(@PathVariable Integer id) {
         return usuarioService.registrarComoTutor(id);
     }
 
-    // US25 - Buscar estudiantes por nombre o código
     @GetMapping("/estudiantes/buscar")
     public ResponseEntity<?> buscarEstudiantes(@RequestParam String texto) {
 
-        List<Usuario> estudiantes = usuarioService.buscarEstudiantes(texto);
+        List<UsuarioResponseDTO> estudiantes = usuarioService.buscarEstudiantes(texto);
 
         if (estudiantes.isEmpty()) {
             return ResponseEntity.ok("No se encontraron resultados para tu búsqueda");
@@ -94,11 +97,10 @@ public class UsuarioController {
         return ResponseEntity.ok(estudiantes);
     }
 
-    // US46 - Exportar lista de estudiantes
     @GetMapping("/estudiantes/exportar")
     public ResponseEntity<?> exportarEstudiantes() {
 
-        List<Usuario> estudiantes = usuarioService.exportarEstudiantes();
+        List<UsuarioResponseDTO> estudiantes = usuarioService.exportarEstudiantes();
 
         if (estudiantes.isEmpty()) {
             return ResponseEntity.ok("No hay estudiantes para exportar");
@@ -106,9 +108,9 @@ public class UsuarioController {
 
         return ResponseEntity.ok(estudiantes);
     }
-    // US49 - Listar estudiantes con paginación
+
     @GetMapping("/estudiantes/paginado")
-    public Page<Usuario> getEstudiantesPaginado(
+    public Page<UsuarioResponseDTO> getEstudiantesPaginado(
             @RequestParam(defaultValue = "0") int pagina,
             @RequestParam(defaultValue = "10") int tamano) {
 
@@ -116,3 +118,4 @@ public class UsuarioController {
         return usuarioService.getEstudiantesPaginado(pageable);
     }
 }
+

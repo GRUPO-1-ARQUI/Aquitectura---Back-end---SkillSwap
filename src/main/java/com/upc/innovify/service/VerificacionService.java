@@ -2,6 +2,7 @@ package com.upc.innovify.service;
 
 import com.upc.innovify.dto.ReporteVerificacionesDTO;
 import com.upc.innovify.model.Verificacion;
+
 import java.util.List;
 import java.util.Map;
 
@@ -15,5 +16,4 @@ public interface VerificacionService {
     Map<String, Object> getEstudiante(Integer idUsuario);
     List<Map<String, Object>> getEstudiantesVerificacion();
     ReporteVerificacionesDTO getReportePorInstitucion(Integer idInstitucion);
-
 }

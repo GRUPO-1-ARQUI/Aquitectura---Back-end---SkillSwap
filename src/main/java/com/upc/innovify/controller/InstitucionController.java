@@ -5,6 +5,7 @@ import com.upc.innovify.service.InstitucionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -29,18 +30,21 @@ public class InstitucionController {
     }
 
     // POST /api/instituciones — crear institución
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PostMapping
     public Institucion create(@Valid @RequestBody Institucion institucion) {
         return institucionService.create(institucion);
     }
 
     // PUT /api/instituciones/{id} — actualizar institución
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PutMapping("/{id}")
     public Institucion update(@PathVariable Integer id, @Valid @RequestBody Institucion institucion) {
         return institucionService.update(id, institucion);
     }
 
     // DELETE /api/instituciones/{id} — eliminar institución
+    @PreAuthorize("hasRole('COORDINADOR')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         institucionService.delete(id);

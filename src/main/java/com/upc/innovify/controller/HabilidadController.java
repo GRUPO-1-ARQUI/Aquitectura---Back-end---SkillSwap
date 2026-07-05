@@ -5,6 +5,7 @@ import com.upc.innovify.service.HabilidadService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,18 +31,21 @@ public class HabilidadController {
     }
 
     // POST /api/habilidades — crear habilidad
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PostMapping
     public Habilidad create(@Valid @RequestBody Habilidad habilidad) {
         return habilidadService.create(habilidad);
     }
 
     // PUT /api/habilidades/{id} — actualizar habilidad
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PutMapping("/{id}")
     public Habilidad update(@PathVariable Integer id, @Valid @RequestBody Habilidad habilidad) {
         return habilidadService.update(id, habilidad);
     }
 
     // DELETE /api/habilidades/{id} — eliminar habilidad
+    @PreAuthorize("hasRole('COORDINADOR')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         habilidadService.delete(id);

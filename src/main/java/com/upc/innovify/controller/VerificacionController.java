@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,11 +35,13 @@ public class VerificacionController {
         return ResponseEntity.ok(verificacionService.getEstudiante(idUsuario));
     }
 
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PutMapping("/{id}/aprobar")
     public ResponseEntity<Verificacion> aprobar(@PathVariable Integer id) {
         return ResponseEntity.ok(verificacionService.aprobar(id));
     }
 
+    @PreAuthorize("hasRole('COORDINADOR')")
     @PutMapping("/{id}/rechazar")
     public ResponseEntity<Verificacion> rechazar(@PathVariable Integer id) {
         return ResponseEntity.ok(verificacionService.rechazar(id));
