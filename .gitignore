@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Firebase credentials (US33)
+src/main/resources/firebase/serviceAccountKey.json
