@@ -1,58 +1,45 @@
 package com.upc.innovify.controller;
 
 import com.upc.innovify.model.Verificacion;
-import com.upc.innovify.model.Usuario;
-import com.upc.innovify.repository.UsuarioRepository;
 import com.upc.innovify.service.VerificacionService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/verificaciones")
+@RequiredArgsConstructor
 public class VerificacionController {
 
     private final VerificacionService verificacionService;
-    private final UsuarioRepository usuarioRepository;
 
-    public VerificacionController(VerificacionService verificacionService,
-                                  UsuarioRepository usuarioRepository) {
-        this.verificacionService = verificacionService;
-        this.usuarioRepository = usuarioRepository;
-    }
-
-    // US22 - pendientes
     @GetMapping("/pendientes")
-    public List<Verificacion> getPendientes() {
-        return verificacionService.getPendientes();
+    public ResponseEntity<List<Verificacion>> getPendientes() {
+        return ResponseEntity.ok(verificacionService.getPendientes());
     }
 
-    // US18 - crear verificación
     @PostMapping
-    public Verificacion create(@RequestBody Verificacion verificacion) {
-        return verificacionService.create(verificacion);
-    }
-
-    // actualizar estado
-    @PutMapping("/{id}/estado")
-    public Verificacion updateEstado(@PathVariable Integer id,
-                                     @RequestParam String estado) {
-        return verificacionService.updateEstado(id, estado);
+    public ResponseEntity<Verificacion> create(@Valid @RequestBody Verificacion verificacion) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(verificacionService.create(verificacion));
     }
 
     @GetMapping("/estudiantes-verificacion/{idUsuario}")
-    public Map<String, Object> getEstudiante(@PathVariable Integer idUsuario) {
+    public ResponseEntity<Map<String, Object>> getEstudiante(@PathVariable Integer idUsuario) {
+        return ResponseEntity.ok(verificacionService.getEstudiante(idUsuario));
+    }
 
-        Usuario estudiante = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+    @PutMapping("/{id}/aprobar")
+    public ResponseEntity<Verificacion> aprobar(@PathVariable Integer id) {
+        return ResponseEntity.ok(verificacionService.aprobar(id));
+    }
 
-        Map<String, Object> response = new HashMap<>();
-        response.put("idUsuario", estudiante.getIdUsuario());
-        response.put("nombre", estudiante.getNombreCompleto());
-        response.put("email", estudiante.getCorreoInstitucional());
-        response.put("estado", estudiante.getEstado());
-        response.put("verificado", estudiante.getVerificado());
-
-        return response;
+    @PutMapping("/{id}/rechazar")
+    public ResponseEntity<Verificacion> rechazar(@PathVariable Integer id) {
+        return ResponseEntity.ok(verificacionService.rechazar(id));
     }
 }
