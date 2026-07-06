@@ -4,12 +4,10 @@ import com.upc.innovify.dto.DashboardEstudianteDTO;
 import com.upc.innovify.service.DashboardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "${ip.frontend}", allowedHeaders = "true", exposedHeaders = "Authorization")
 @RequestMapping("/api/dashboard")
 @RequiredArgsConstructor
 public class DashboardController {
