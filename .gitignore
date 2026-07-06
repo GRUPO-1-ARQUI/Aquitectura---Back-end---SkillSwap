@@ -34,3 +34,4 @@ build/
 
 # Firebase credentials (US33)
 src/main/resources/firebase/serviceAccountKey.json
+src/main/resources/Firebase/serviceAccountKey.json
