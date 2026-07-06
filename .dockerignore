@@ -1,0 +1,6 @@
+.git
+.idea
+target
+repomix-output.xml
+img.png
+src/main/resources/firebase/serviceAccountKey.json

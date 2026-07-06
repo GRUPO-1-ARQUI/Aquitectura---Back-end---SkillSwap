@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: skillswap-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-innovify_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgre}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-innovify_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: .
+    container_name: skillswap-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 8081
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-innovify_db}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-postgres}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-postgre}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      IP_FRONTEND: ${IP_FRONTEND:-http://3.21.40.9:4200}
+      JWT_SECRET: ${JWT_SECRET:-aW5ub3ZpZnktc2tpbGxzd2FwLWp3dC1hdXRoLXNlY3JldC1rZXktMjAyNC1zYWZl}
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-18000000}
+      FIREBASE_CREDENTIALS_PATH: file:/app/firebase/serviceAccountKey.json
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./src/main/resources/firebase/serviceAccountKey.json:/app/firebase/serviceAccountKey.json:ro
+
+volumes:
+  postgres_data:
